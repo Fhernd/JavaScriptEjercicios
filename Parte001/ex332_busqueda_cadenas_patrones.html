@@ -1,0 +1,55 @@
+<!-- Ejercicio 332: Crear un formulario para facilitar la búsqueda de texto con un patrón -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Búsqueda con Patrones</title>
+    <style>
+        .encontrado {
+            background-color: #ff0;
+        }
+    </style>
+
+</head>
+
+<body>
+    <form id="frmBuscar">
+        <textarea id="texto" cols="150" rows="10"></textarea>
+        <p>
+            Patrón búsqueda: <input id="patron" type="text" />
+        </p>
+    </form>
+    <button id="btnBuscar">Buscar</button>
+
+    <div id="resultado"></div>
+
+    <script>
+        document.getElementById('btnBuscar').onclick = function() {
+            let patron = document.getElementById('patron').value;
+            let regexp = new RegExp(patron, 'g');
+
+            let texto = document.getElementById('texto').value;
+
+            let coincidencias;
+            let resultado = '<pre>';
+            let primero = 0;
+            let ultimo = 0;
+
+            while((coincidencias = regexp.exec(texto)) != null) {
+                ultimo = coincidencias.index;
+
+                resultado += texto.substring(primero, ultimo);
+                resultado += '<span class="encontrado">' + coincidencias[0] + '</span>';
+                primero = regexp.lastIndex;
+            }
+
+            resultado += texto.substring(primero, texto.length);
+            resultado += '</pre>';
+
+            document.getElementById('resultado').innerHTML = resultado;
+        }
+    </script>
+</body>
+
+</html>
