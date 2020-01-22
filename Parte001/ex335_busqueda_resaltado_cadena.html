@@ -1,0 +1,41 @@
+<!-- Ejercicio 335: Crear un formulario para la búsqueda y resaltado de texto con un patrón -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Búsqueda de Texto con Patrones</title>
+    <style>
+        .encontrado {
+            background-color: #ff0;
+        }
+    </style>
+
+</head>
+
+<body>
+    <form id="frmBuscar">
+        <textarea id="texto" cols="150" rows="10"></textarea>
+        <p>
+            Patrón búsqueda: <input id="patron" type="text" />
+        </p>
+    </form>
+    <button id="btnBuscar">Buscar y Resaltar</button>
+
+    <div id="resultado"></div>
+
+    <script>
+        document.getElementById('btnBuscar').onclick = function() {
+            let patron = document.getElementById('patron').value;
+            let re = new RegExp(patron, 'g');
+
+            let texto = document.getElementById('texto').value;
+
+            let resultado = texto.replace(re, '<span class="encontrado">$&</span>');
+
+            document.getElementById('resultado').innerHTML = resultado;
+        }
+    </script>
+</body>
+
+</html>
