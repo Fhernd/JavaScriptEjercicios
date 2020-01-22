@@ -1,0 +1,53 @@
+<!-- Ejercicio 338: Crear un formulario para convertir fechas en ISO 8601 a objetos fecha. -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Conversión de Fechas ISO 8601</title>
+</head>
+
+<body>
+    <form>
+        <p>Fecha en formato ISO 8601: <input type="text" id="fechaIso8601" />
+        </p>
+    </form>
+    <button id="btnConvertirFecha">Convertir Fecha</button>
+
+    <div id="resultado"></div>
+
+    <script>
+        document.getElementById('btnConvertirFecha').onclick = function() {
+            let fechaIso8601 = document.getElementById('fechaIso8601').value;
+            let resultado = convertirFechaIso8601(fechaIso8601);
+
+            document.getElementById('resultado').innerHTML = resultado;
+        }
+
+        function convertirFechaIso8601(fechaIso8601){
+            // 2020-1-22T17:05:19Z
+            fechaIso8601 = fechaIso8601.replace(/\D/g, ' ');
+            fechaIso8601 = fechaIso8601.replace(/\s$/, '');
+
+            let componentes = fechaIso8601.split(' ');
+
+            if (componentes.length < 3){
+                return 'Fecha inválida';
+            }
+
+            if (componentes.length < 4){
+                componentes[3] = 0;
+                componentes[4] = 0;
+                componentes[5] = 0;
+            }
+
+            --componentes[1];
+
+            let fecha = new Date(Date.UTC.apply(null, componentes));
+
+            return fecha.toUTCString();
+        }
+    </script>
+</body>
+
+</html>
