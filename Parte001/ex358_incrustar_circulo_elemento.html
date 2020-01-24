@@ -1,0 +1,46 @@
+<!-- Ejercicio 358: Usar un método matemático para incrustar un círculo en un elemento. -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Incrustar un Círculo en un Rectángulo</title>
+    <style type="text/css">
+        #rectangulo {
+            width: 800px;
+            height: 600px;
+            border: 1px solid black;
+        }
+    </style>
+
+    <script type="text/javascript">
+    
+        window.onload = window.onresize = function() {
+            let rectangulo = document.getElementById('rectangulo');
+            let estiloRectangulo = window.getComputedStyle(rectangulo, null);
+
+            let ancho = parseInt(estiloRectangulo.getPropertyValue('width'));
+            let alto = parseInt(estiloRectangulo.getPropertyValue('height'));
+
+            let x = ancho / 2;
+            let y = alto / 2;
+
+            let radio = Math.min(ancho, alto) / 2;
+
+            let circulo = document.getElementById('circulo');
+            circulo.setAttribute('r', radio);
+            circulo.setAttribute('cx', x);
+            circulo.setAttribute('cy', y);
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <div id="rectangulo">
+        <svg width="100%" height="100%">
+            <circle id="circulo" width="200" height="200" r="10" fill="crimson" />
+        </svg>
+    </div>
+</body>
