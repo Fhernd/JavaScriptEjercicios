@@ -1,0 +1,35 @@
+<!-- Ejercicio 360: Usar los métodos startsWith, endsWith, codePointAt y fromCodePoint de ES6. -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Métodos de String (ES6)</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.5/es6-sham.min.js"></script>
+</head>
+
+<body>
+    <script type="text/javascript">
+        let texto = 'JavaScript es un lenguaje de programación interpretado. La versión actual más usada es ECMAScript 6';
+
+        console.log(texto.startsWith('JavaScript'));
+        console.log(texto.startsWith('JS'));
+        console.log(texto.endsWith('ECMAScript 6'));
+        console.log(texto.endsWith('ES6'));
+
+        console.log();
+
+        console.log(texto.codePointAt(0));
+        console.log(texto.codePointAt(1));
+        console.log(texto.codePointAt(2));
+
+        console.log();
+
+        console.log(String.fromCodePoint(102));
+        console.log(String.fromCodePoint(111));
+        console.log(String.fromCodePoint(114));
+    </script>
+</body>
+
+</html>
