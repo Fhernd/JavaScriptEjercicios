@@ -1,0 +1,44 @@
+<!-- Ejercicio 380: Crear un arreglo asociativo desde controles de un formulario. -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Creación Arreglo Asociativo</title>
+</head>
+
+<body>
+    <form id="frmValores">
+        <label>Valor 1:</label> <input type="text" id="primero" /><br />
+        <label>Valor 2:</label> <input type="text" id="segundo" /><br />
+        <label>Valor 3:</label> <input type="text" id="tercero" /><br />
+        <label>Valor 4:</label> <input type="text" id="cuarto" /><br />
+        <button id="btnValidar">Validar</button>
+    </form>
+    <div id="resultado"></div>
+
+    <script>
+        document.getElementById('btnValidar').addEventListener('click', function(evento) {
+            evento.preventDefault();
+
+            let elementos = document.getElementById('frmValores').elements;
+            let datos = new Object();
+
+            for(let i = 0; i < elementos.length; ++i){
+                if (elementos[i].type == 'text'){
+                    datos[elementos[i].id] = elementos[i].value;
+                }
+            }
+
+            let resultado = '';
+            Object.keys(datos).forEach((atributo) => {
+                let valor = datos[atributo];
+                resultado += `${atributo} -> ${valor}<br/>`;
+            });
+
+            document.getElementById('resultado').innerHTML = resultado;
+        });
+    </script>
+</body>
+
+</html>
