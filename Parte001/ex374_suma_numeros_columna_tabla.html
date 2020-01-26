@@ -1,0 +1,53 @@
+<!-- Ejercicio 374: Recorrer el resultado de querySelectorAll() con forEach() y call(). -->
+
+<!-- Ejercicio 354: Sumar todos los números localizados en una columna de una tabla. -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Suma Valores Columna</title>
+</head>
+
+<body>
+    <table id="productos" border="1">
+        <tr>
+            <td>Mouse</td>
+            <td>47.9</td>
+        </tr>
+        <tr>
+            <td>Teclado</td>
+            <td>99.99</td>
+        </tr>
+        <tr>
+            <td>Monitor</td>
+            <td>299</td>
+        </tr>
+    </table>
+
+    <script>
+        let total = 0;
+
+        let celdasPrecio = document.querySelectorAll('td + td');
+
+        [].forEach.call(celdasPrecio, (celda) => {
+            total += parseFloat(celda.firstChild.data);
+        });
+
+        let nuevaFila = document.createElement('tr');
+
+        let celdaTotal = document.createElement('td');
+        let textoCeldaTotal = document.createTextNode('Total:');
+        celdaTotal.appendChild(textoCeldaTotal);
+        nuevaFila.appendChild(celdaTotal);
+
+        let celdaValorTotal = document.createElement('td');
+        let textoCeldaValorTotal = document.createTextNode(total);
+        celdaValorTotal.appendChild(textoCeldaValorTotal);
+        nuevaFila.appendChild(celdaValorTotal);
+
+        document.getElementById('productos').appendChild(nuevaFila);
+    </script>
+</body>
+
+</html>
