@@ -1,0 +1,33 @@
+<!-- Ejercicio 399: Convertir un objeto NodeList en un objeto Array. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 399 - Convertir NodeList a un Arreglo</title>
+</head>
+<body>
+    <div>Python</div>
+    <div>JavaScript</div>
+    <div>Java</div>
+    <div>C#</div>
+
+    <p id="resultado"></p>
+
+    <script>
+        let divs = document.querySelectorAll('div');
+        let resultado = document.getElementById('resultado');
+        
+        let arregloDivs = [].slice.call(divs);
+        let contenido = '';
+
+        arregloDivs.forEach((div) => {
+            contenido += div.textContent + '<br>';
+        });
+
+        resultado.innerHTML = contenido;
+    </script>
+</body>
+</html>
