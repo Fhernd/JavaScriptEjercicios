@@ -1,0 +1,26 @@
+<!-- Ejercicio 427: Seleccionar todos los elementos img que estén seguidas de un elemento p. -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 427</title>
+</head>
+
+<body>
+    <p><a href="#"><img src="https://via.placeholder.com/120" alt="Imagen 1"></a></p>
+    <p><img src="https://via.placeholder.com/120" alt="Imagen 2"></p>
+    <p><img src="https://via.placeholder.com/120" alt="Imagen 3"></p><img src="https://via.placeholder.com/150" alt="Imagen 4">
+    <img src="https://via.placeholder.com/150" alt="Imagen 5">
+
+    <script>
+        let imagenes = document.querySelectorAll('p + img');
+
+        console.log(imagenes.length);
+    </script>
+</body>
+
+</html>
