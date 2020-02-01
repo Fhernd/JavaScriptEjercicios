@@ -1,0 +1,45 @@
+<!-- Ejercicio 419: Crear un temporizador con el uso de setTimeout() y bind(). -->
+
+<!DOCTYPE html>
+
+<head>
+  <html>
+  <title>Temporizador</title>
+  <meta charset=utf-8" />
+  <style type="text/css">
+    #temporizador {
+      font-size: 72pt;
+      margin: 70px auto;
+      width: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="temporizador">
+    10
+  </div>
+
+  <script>
+    function Temporizador(id, inicio, final){
+      this.id = id;
+      this.inicio = inicio;
+      this.final = final;
+      this.contador = this.inicio;
+
+      this.conteoSegundos = function(){
+        if (this.contador == this.final){
+          this.conteoSegundos = null;
+          return;
+        }
+
+        document.getElementById(this.id).innerHTML = this.contador--;
+        setTimeout(this.conteoSegundos.bind(this), 1000);
+      };
+    }
+
+    let temporizador = new Temporizador('temporizador', 10, 0);
+    temporizador.conteoSegundos();
+  </script>
+</body>
+</html>
