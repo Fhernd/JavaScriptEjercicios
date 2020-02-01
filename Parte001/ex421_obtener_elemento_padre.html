@@ -1,0 +1,29 @@
+<!-- Ejercicio 421: Obtener el elemento padre de otro elemento con parentNode. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 421</title>
+</head>
+<body>
+    <div id="padre">
+        <p id="hijo">¡JavaScript es tremendo!</p>
+    </div>
+    
+    <p id="resultado"></p>
+
+    <script>
+        let hijo = document.getElementById('hijo');
+        let resultado = document.getElementById('resultado');
+
+        // resultado.innerText = hijo.innerText;
+
+        let padre = hijo.parentNode;
+
+        resultado.innerText = padre.id;
+    </script>
+</body>
+</html>
