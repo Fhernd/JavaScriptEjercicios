@@ -1,0 +1,30 @@
+<!-- Ejercicio 424: Agregar de manera dinámica un nuevo elemento a un documento HTML. -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 423</title>
+</head>
+
+<body>
+    <p><img src="https://via.placeholder.com/120" alt="Imagen 1"></p>
+    <p><img src="https://via.placeholder.com/120" alt="Imagen 2"></p>
+    <p><img src="https://via.placeholder.com/120" alt="Imagen 3"></p>
+    
+    <script>
+        let nuevoParrafo = document.createElement('p');
+        let nuevaImagen = document.createElement('img');
+        nuevaImagen.src = 'https://via.placeholder.com/150';
+        nuevaImagen.alt = 'Imagen 4';
+        nuevoParrafo.appendChild(nuevaImagen);
+
+        let parrafos = document.getElementsByTagName('p');
+        parrafos[0].parentNode.appendChild(nuevoParrafo);
+    </script>
+</body>
+
+</html>
