@@ -1,0 +1,26 @@
+<!-- Ejercicio 422: Obtener los elementos hijo de un elemento con la propiedad childNodes. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 422</title>
+</head>
+<body>
+    <div id="padre"><p id="hijo1">¡JavaScript es tremendo!</p><p id="hijo2">¡JavaScript es genial!</p><p id="hijo3">¡JavaScript es amazing!</p></div>
+    
+    <p id="resultado"></p>
+
+    <script>
+        let padre = document.getElementById('padre');
+        let resultado = document.getElementById('resultado');
+
+        // resultado.innerText = padre.nodeName;
+
+        let hijos = padre.childNodes;
+        resultado.innerText = hijos.length;
+    </script>
+</body>
+</html>
