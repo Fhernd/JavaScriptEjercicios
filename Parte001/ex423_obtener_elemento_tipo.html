@@ -1,0 +1,36 @@
+<!-- Ejercicio 423: Obtener todos los elementos de un tipo específico con getElementsByTagName(). -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 423</title>
+</head>
+
+<body>
+    <p>¡JavaScript es tremendo!</p>
+    <p>¡JavaScript es amazing!</p>
+    <span>¡Python es tremendo!</span>
+    <br>
+    <span>¡Java es fascinante!</span>
+    <p>¡JavaScript es génial!</p>
+
+    <script>
+        let parrafos = document.getElementsByTagName('p');
+
+        console.log(parrafos.length);
+
+        let resultado = '';
+
+        for(let i = 0; i < parrafos.length; ++i){
+            resultado += parrafos[i].innerText + '\n';
+        }
+
+        console.log(resultado);
+    </script>
+</body>
+
+</html>
