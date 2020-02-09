@@ -1,0 +1,25 @@
+<!-- Ejercicio 433: Crear un atributo con createAttribute() para el estilo de un elemento. -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 433</title>
+</head>
+
+<body>
+    <div id="contenedor">
+    </div>
+
+    <script>
+    let atributoEstilo = document.createAttribute('style');
+    atributoEstilo.nodeValue = 'left: 100px; top: 100px; width: 300px; height: 300px; border: 2px dashed green;'
+
+    let contenedor = document.getElementById('contenedor');
+    contenedor.setAttributeNode(atributoEstilo);
+    </script>
+</body>
+</html>
