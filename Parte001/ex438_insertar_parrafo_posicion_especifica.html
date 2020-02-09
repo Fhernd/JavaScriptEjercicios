@@ -1,0 +1,35 @@
+<!-- Ejercicio 438: Insertar un nuevo parráfo (p) antes del tercer párrafo dentro de un div. -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 438</title>
+</head>
+
+<body>
+    <div id="contenedor">
+        <p>¡JavaScript es génial!</p>
+        <p>¡Python es tremendo!</p>
+        <p>¡Java es estupendo!</p>
+        <p>¡C++ es amazing!</p>
+    </div>
+
+    <script>
+    let contenedor = document.getElementById('contenedor');
+    let parrafos = contenedor.getElementsByTagName('p');
+
+    let parrafoHtml = document.createElement('p');
+    parrafoHtml.innerText = '¡HTML es sorprendente!';
+
+    if (parrafos[2]){
+        contenedor.insertBefore(parrafoHtml, parrafos[2]);
+    } else {
+        contenedor.appendChild(parrafoHtml);
+    }
+    </script>
+</body>
+</html>
