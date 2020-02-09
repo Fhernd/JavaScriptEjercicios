@@ -1,0 +1,34 @@
+<!-- Ejercicio 432: Aplicar una clase CSS a un elemento div a través del método setAttribute(). -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 432</title>
+
+    <style>
+        .caja{
+            top: 100px;
+            left: 100px;
+            width: 300px;
+            height: 300px;
+            border: 2px dashed crimson;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="contenedor">
+
+    </div>
+
+    <script>
+        let contenedor = document.getElementById('contenedor');
+
+        contenedor.setAttribute('class', 'caja');
+    </script>
+</body>
+</html>
