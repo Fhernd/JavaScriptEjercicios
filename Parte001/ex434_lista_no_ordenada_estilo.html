@@ -1,0 +1,32 @@
+<!-- Ejercicio 434: Aplicar un estilo tipo rayado a una lista no ordenada (ul). -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 434</title>
+</head>
+
+<body>
+    <ul id="lenguajes">
+        <li>JavaScript</li>
+        <li>Python</li>
+        <li>PHP</li>
+        <li>C</li>
+        <li>Javaq</li>
+        <li>C++</li>
+        <li>C#</li>
+    </ul>
+
+    <script>
+    let lenguajes = document.querySelectorAll('li:nth-child(odd)');
+
+    for(let i = 0; i < lenguajes.length; ++i){
+        lenguajes[i].setAttribute('style', 'background-color: gray');
+    } 
+    </script>
+</body>
+</html>
