@@ -1,0 +1,39 @@
+<!-- Ejercicio 440: Formulario para la creación de elementos párrafo con texto personalizado. -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 440</title>
+</head>
+
+<body>
+
+    <form id="frmCrearParrafo">
+        <p>
+            Texto: <input id="texto" type="text" />
+        </p>
+    </form>
+    <button id="btnCrearParrafo">Crear</button>
+
+    <hr>
+
+    <div id="parrafos"></div>
+
+    <script>
+        document.getElementById('btnCrearParrafo').onclick = function() {
+            let contenido = document.getElementById('texto').value;
+
+            let parrafo = document.createElement('p');
+            let nodoTexto = document.createTextNode(contenido);
+            parrafo.appendChild(nodoTexto);
+
+            document.getElementById('parrafos').appendChild(parrafo);
+        };
+    </script>
+</body>
+
+</html>
