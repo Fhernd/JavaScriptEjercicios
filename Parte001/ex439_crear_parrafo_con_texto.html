@@ -1,0 +1,24 @@
+<!-- Ejercicio 439: Crear un nuevo elemento parráfo (p) y asignarle texto con createTextNode(). -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 439</title>
+</head>
+
+<body>
+    
+    <script>
+        let parrafo = document.createElement('p');
+        let textoParrafo = document.createTextNode('¡JavaScript es tremendo!');
+
+        parrafo.appendChild(textoParrafo);
+
+        document.getElementsByTagName('body')[0].appendChild(parrafo);
+    </script>
+</body>
+</html>
