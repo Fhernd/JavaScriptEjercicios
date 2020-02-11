@@ -1,0 +1,62 @@
+<!-- Ejercicio 442: Contar el número de filas de datos de un elemento table. -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 442</title>
+</head>
+
+<body>
+
+    <table id="productos" border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Mouse</td>
+                <td>29.9</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Teclado</td>
+                <td>75.9</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Monitor</td>
+                <td>299.9</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Audífonos</td>
+                <td>55.9</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Smartphone</td>
+                <td>355.9</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p id="resultado"></p>
+
+    <script>
+        let tablaProductos = document.getElementById('productos');
+        let filas = tablaProductos.getElementsByTagName('tbody')[0];
+
+        document.getElementById('resultado').innerText = filas.children.length;
+    </script>
+</body>
+
+</html>
