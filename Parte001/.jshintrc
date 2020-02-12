@@ -1,5 +1,6 @@
 {
     "curly": true,
     "eqeqeq": true,
-    "maxparams": 3
+    "maxparams": 3,
+    "esversion": 6
 }
