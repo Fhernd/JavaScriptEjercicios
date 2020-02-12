@@ -1,0 +1,89 @@
+<!-- Ejercicio 444: Ocultar secciones de un formulario para optimizar la visibilidad. -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 444</title>
+    <style>
+        .encabezado {
+            width: 400px;
+            margin: 10px 0 0 0;
+            padding: 10px;
+            background-color: #ccccff;
+            text-align: center;
+            border: 1px solid #ccccff;
+        }
+
+        .componentes {
+            border: 1px solid #ccccff;
+            padding: 10px;
+            border: 1px solid #ccccff;
+            width: 400px;
+        }
+
+        button {
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <div>
+            <div id="validaciones" class="encabezado">
+                <p>Validaciones</p>
+            </div>
+            <div id="seccion1" class="componentes">
+                <input type="checkbox" name="opcion" /> - Alternativa 1<br />
+                <input type="checkbox" name="opcion" /> - Alternativa 2<br />
+                <input type="checkbox" name="opcion" /> - Alternativa 3<br />
+                <input type="checkbox" name="opcion" /> - Alternativa 4<br />
+                <input type="checkbox" name="opcion" /> - Alternativa 5<br />
+            </div>
+        </div>
+        <div>
+            <div id="seleccion" class="encabezado">
+                <p>Selección</p>
+            </div>
+            <div class="componentes">
+                <input type="radio" name="botonSeleccion" /> - Opción 1<br />
+                <input type="radio" name="botonSeleccion" /> - Opción 2<br />
+                <input type="radio" name="botonSeleccion" /> - Opción 3<br />
+                <input type="radio" name="botonSeleccion" /> - Opción 4<br />
+                <input type="radio" name="botonSeleccion" /> - Opción 5<br />
+                <button>Enviar</button>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        let divs = document.getElementsByTagName('div');
+
+        for (let i = 0; i < divs.length; ++i){
+            if (divs[i].className == 'componentes'){
+                divs[i].style.display = 'none';
+            } else if (divs[i].className == 'encabezado'){
+                divs[i].onclick = mostrarOcultarSeccion;
+            }
+        }
+
+        function mostrarOcultarSeccion() {
+            let padre = this.parentNode;
+            let componente = padre.getElementsByTagName('div')[1];
+
+            if (componente.style.display == 'none'){
+                componente.style.display = 'block';
+            } else {
+                componente.style.display = 'none';
+            }
+
+            return false;
+        }
+    </script>
+</body>
+
+</html>
