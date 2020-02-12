@@ -1,0 +1,72 @@
+<!-- Ejercicio 443: Mostrar un mensaje emergente en el centro de la pantalla. -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 443</title>
+    <style>
+        .cubierta-emergente {
+            background-color: #000;
+            opacity: .5;
+            filter: alpha(opacity=50);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+        }
+
+        .mensaje-emergente {
+            position: absolute;
+            background-color: #ffff00;
+            padding: 10px;
+            width: 300px;
+            height: 300px;
+            font-size: 2em;
+            z-index: 11;
+            top: 50%;
+            left: 50%;
+            margin-left: -100px;
+            margin-top: -100px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>JavaScript es un lenguaje de programación que se ejecuta en el navegador Web.</p>
+
+    <script>
+        function mostrarCubiertaEmergente(){
+            let divEmergente = document.createElement('div');
+            divEmergente.setAttribute('id', 'divEmergente');
+            divEmergente.setAttribute('class', 'cubierta-emergente');
+            document.body.appendChild(divEmergente);
+
+            let divMensaje = document.createElement('div');
+            let textoDivMensaje = document.createTextNode('¡Haga click aquí para subscribirse al boletín de noticias de JavaScript!');
+            divMensaje.appendChild(textoDivMensaje);
+            divMensaje.setAttribute('id', 'divMensaje');
+            divMensaje.setAttribute('class', 'mensaje-emergente');
+
+            divMensaje.onclick = removerCubiertaEmergente;
+
+            document.body.appendChild(divMensaje);
+        }
+
+        function removerCubiertaEmergente(){
+            document.body.removeChild(document.getElementById('divEmergente'));
+            document.body.removeChild(document.getElementById('divMensaje'));
+        }
+
+        window.onload = function() {
+            mostrarCubiertaEmergente();
+        }
+    </script>
+</body>
+
+</html>
