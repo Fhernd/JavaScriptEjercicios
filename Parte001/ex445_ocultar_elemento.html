@@ -1,0 +1,44 @@
+<!-- Ejercicio 445: Ocultar un elemento de una página web de forma dinámica. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 445</title>
+
+    <style>
+        .caja{
+            background-color: crimson;
+            height: 300px;
+            width: 300px;
+            border: 2px solid black;
+            padding: 5px;
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 300px;
+            color: white;
+            font-size: xx-large;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="caja" id="uno">1</div>
+    <div class="caja" id="dos">2</div>
+    <div class="caja" id="tres">3</div>
+    
+    <br>
+    <br>
+
+    <button onclick="ocultarDiv();">Ocultar div</button>
+
+    <script>
+        function ocultarDiv() {
+            // document.getElementById('dos').style.display = 'none';
+            document.getElementById('dos').style.visibility = 'hidden';
+        }
+    </script>
+</body>
+</html>
