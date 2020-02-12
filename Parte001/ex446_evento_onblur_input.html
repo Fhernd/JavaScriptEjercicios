@@ -1,0 +1,25 @@
+<!-- Ejercicio 446: Usar el evento onblur para cambiar a mayúscula el contenido de un campo de texto. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 446</title>
+</head>
+
+<body>
+
+    <label>Escriba un texto:</label>
+    <input type="text" onblur="cambiarAMayuscula(this);">
+
+    <script>
+        function cambiarAMayuscula(elemento) {
+            let texto = elemento.value;
+            elemento.value = texto.toUpperCase();
+        }
+    </script>
+</body>
+
+</html>
