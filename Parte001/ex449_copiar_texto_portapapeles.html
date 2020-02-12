@@ -1,0 +1,28 @@
+<!-- Ejercicio 449: Copiar al portapapeles del sistema el contenido de un campo de texto. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 449</title>
+</head>
+
+<body>
+
+    <label>Escriba un texto:</label>
+    <input type="text" id="texto">
+    <button onclick="copiarAlPortapapeles();">Copiar</button>
+
+    <script>
+        function copiarAlPortapapeles() {
+            let texto = document.getElementById('texto');
+            texto.select();
+            texto.setSelectionRange(0, 99999);
+            document.execCommand('copy');
+        }
+    </script>
+</body>
+
+</html>
