@@ -1,0 +1,32 @@
+<!-- Ejercicio 456: Crear una prueba unitaria para validar una función personalizada. -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Ejercicio 456</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.9.2.css">
+</head>
+
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+
+    <script src="https://code.jquery.com/qunit/qunit-2.9.2.js"></script>
+
+    <script>
+
+        function sumarYRedondear(a, b){
+            return Math.round(a + b);
+        }
+
+        QUnit.test('Prueba unitaria de sumarYRedondear', function(assert) {
+            assert.equal(5, sumarYRedondear(3.7, 1.2));
+            assert.ok(sumarYRedondear(3.7, 1.2), 'La suma es satisfactoria.');
+        });
+    </script>
+</body>
+
+</html>
