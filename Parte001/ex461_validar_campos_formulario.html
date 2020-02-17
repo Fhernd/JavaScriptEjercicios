@@ -1,0 +1,69 @@
+<!-- Ejercicio 461: Validar los campos de un formulario usando ARIA. -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 461</title>
+
+    <style>
+        [aria-invalid] {
+            background-color: #ffeeee;
+        }
+
+        [role="alert"] {
+            background-color: #ffcccc;
+            font-weight: bold;
+            padding: 5px;
+            border: 1px dashed #000;
+        }
+
+        div {
+            margin: 10px 0;
+            padding: 5px;
+            width: 400px;
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="frmRegistro">
+        <div><label for="nombre">*Nombre:</label><br />
+            <input id="nombre" name="nombre" type="text" aria-required="true" required />
+        </div>
+        <div><label for="telefono">Teléfono:</label><br />
+            <input id="telefono" name="telefono" type="text" />
+        </div>
+        <div><label for="edad">Edad:</label><br />
+            <input id="edad" name="edad" type="text" />
+        </div>
+        <div><label for="direccion">Dirección:</label><br />
+            <input id="direccion" name="direccion" type="text" />
+        </div>
+
+        <input type="submit" value="Enviar" />
+    </form>
+
+    <script>
+        function resetearCampo(elemento) {
+            elemento.parentNode.setAttribute('style', 'background-color: #ffffff');
+            let esValido = elemento.getAttribute('aria-invalid');
+
+            if(esValido){
+                elemento.removeAttribute('aria-invalid');
+            }
+        }
+
+        function establecerCampoInvalido(elemento){
+            elemento.parentNode.setAttribute('style', 'background-color: #ffeeee');
+            elemento.setAttribute('area-invalid', 'true')
+        }
+
+        document.getElementById('nombre').onblur = campoObligatorio;
+    </script>
+</body>
+
+</html>
