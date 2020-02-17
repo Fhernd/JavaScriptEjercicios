@@ -1,0 +1,35 @@
+<!-- Ejercicio 466: Usar la accounting.js para operaciones de contabilidad. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 466</title>
+</head>
+<body>
+
+    <div id="resultado"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/accounting.js/0.4.1/accounting.min.js"></script>
+
+    <script>
+        let opciones = {
+            symbol: '$',
+            decimal: '.',
+            thousand: ',',
+            precision: 3
+        };
+
+        let formato = accounting.formatMoney(5457239);
+        document.getElementById('resultado').innerText = formato;
+
+        formato = accounting.formatMoney(1237.95, '€', 2, '.', ',');
+        document.getElementById('resultado').innerText = formato;
+
+        let valores = [[123, 857.13], [54852.19, 1159.54]];
+        formato = accounting.formatColumn(valores);
+        document.getElementById('resultado').innerText = formato;
+    </script>
+</body>
+</html>
