@@ -1,0 +1,36 @@
+<!-- Ejercicio 460: Resaltar la ausencia de valor en un campo para asegurar accesibilidad. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 460</title>
+
+    <style>
+        [aria-invalid] {
+            background-color: lightsalmon;
+        }
+
+        [aria-valid] {
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre">
+
+    <script>
+        function validarCampo(){
+            if(this.value.length == 0){
+                this.setAttribute('aria-invalid', 'true');
+            } else {
+                this.setAttribute('aria-valid', 'true');
+            }
+        }
+
+        document.getElementById('nombre').onblur = validarCampo;
+    </script>
+</body>
+</html>
