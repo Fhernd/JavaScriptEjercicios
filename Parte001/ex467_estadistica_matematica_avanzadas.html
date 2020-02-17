@@ -1,0 +1,40 @@
+<!-- Ejercicio 467: Usar la librería numbers.js para operaciones de estadística. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 467</title>
+</head>
+<body>
+
+    <div id="resultado"></div>
+    <div id="sumaMatrices"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numbers.js/0.7.0/numbers.min.js"></script>
+
+    <script>
+        let numeros = [2, 3, 5, 7, 11, 13, 17, 19];
+
+        let promedio = numbers.statistic.mean(numeros);
+        let mediana = numbers.statistic.median(numeros);
+        let moda = numbers.statistic.mode(numeros);
+        let desviacionEstandar = numbers.statistic.standardDev(numeros);
+
+        document.getElementById('resultado').innerHTML = `
+        Promedio: ${promedio}<br/>
+        Mediana: ${mediana}<br/>
+        Moda: ${moda}<br/>
+        Desviación estándar: ${desviacionEstandar}<br/>
+        `;
+
+        let matriz1 = [[1, 2], [3, 4]];
+        let matriz2 = [[5, 6], [7, 8]];
+
+        let suma = numbers.matrix.addition(matriz1, matriz2);
+        document.getElementById('sumaMatrices').innerText = suma;
+
+    </script>
+</body>
+</html>
