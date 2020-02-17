@@ -62,7 +62,37 @@
             elemento.setAttribute('area-invalid', 'true')
         }
 
+        function removerAlerta(){
+            let mensaje = document.getElementById('mensaje');
+            if (mensaje){
+                document.body.removeChild(mensaje);
+            }
+        }
+
+        function generarAlerta(mensaje){
+            let mensaje = document.createElement('mensaje');
+            let textoMensaje = document.createTextNode(mensaje);
+            mensaje.appendChild(textoMensaje);
+
+            mensaje.setAttribute('id', 'mensaje');
+            mensaje.setAttribute('class', 'alert');
+            mensaje.setAttribute('role', 'alert');
+
+            document.body.appendChild(mensaje);
+        }
+
         document.getElementById('nombre').onblur = campoObligatorio;
+
+        function campoObligatorio() {
+            removerAlerta();
+
+            if (this.value.length > 0){
+                resetearCampo(this);
+            } else {
+                establecerCampoInvalido(this);
+                generarAlerta('El campo Nombre es obligatorio');
+            }
+        }
     </script>
 </body>
 
