@@ -1,0 +1,21 @@
+<!-- Ejercicio 464: Comprobar si una característica Web moderna está disponible en el navegador. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 464</title>
+</head>
+<body>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+    <script>
+        if (Modernizr.webgl){
+            console.log('WebGL está disponible en su navagedor.');
+        } else {
+            console.log('WebGL NO está disponible en su navagedor.');
+        }
+    </script>
+</body>
+</html>
