@@ -59,7 +59,7 @@
 
         function establecerCampoInvalido(elemento){
             elemento.parentNode.setAttribute('style', 'background-color: #ffeeee');
-            elemento.setAttribute('area-invalid', 'true')
+            elemento.setAttribute('aria-invalid', 'true')
         }
 
         function removerAlerta(){
@@ -70,18 +70,20 @@
         }
 
         function generarAlerta(mensaje){
-            let mensaje = document.createElement('mensaje');
+            let divMensaje = document.createElement('div');
             let textoMensaje = document.createTextNode(mensaje);
-            mensaje.appendChild(textoMensaje);
+            divMensaje.appendChild(textoMensaje);
 
-            mensaje.setAttribute('id', 'mensaje');
-            mensaje.setAttribute('class', 'alert');
-            mensaje.setAttribute('role', 'alert');
+            divMensaje.setAttribute('id', 'mensaje');
+            divMensaje.setAttribute('class', 'alert');
+            divMensaje.setAttribute('role', 'alert');
 
-            document.body.appendChild(mensaje);
+            document.body.appendChild(divMensaje);
         }
 
         document.getElementById('nombre').onblur = campoObligatorio;
+        document.getElementById('edad').onchange = validarEdad;
+        document.getElementById('frmRegistro').onsubmit = ultimaValidacion;
 
         function campoObligatorio() {
             removerAlerta();
@@ -91,6 +93,32 @@
             } else {
                 establecerCampoInvalido(this);
                 generarAlerta('El campo Nombre es obligatorio');
+            }
+        }
+
+        function validarEdad(){
+            removerAlerta();
+
+            if (!isNaN(this.value)){
+                resetearCampo(this);
+            } else {
+                establecerCampoInvalido(this);
+                generarAlerta('El campo Edad debe ser numérico.');
+            }
+        }
+
+        function ultimaValidacion() {
+            removerAlerta();
+
+            let invalidos = document.querySelectorAll("[aria-invalid='true']");
+
+            console.log('...ha ingresado a ultimaValidacion');
+            console.log(invalidos);
+
+            if (invalidos.length > 0){
+                generarAlerta('Aún hay campos pendientes de validación.');
+                console.log('Hay campos inválidos.');
+                return false;
             }
         }
     </script>
