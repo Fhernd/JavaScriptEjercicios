@@ -1,0 +1,22 @@
+<!-- Ejercicio 471: Detectar evento click sobre un elemento button con la librería jQuery. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 471</title>
+</head>
+<body>
+    <p id="texto"></p>
+    <button id="btnMostrarTexto">Mostrar texto</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+        $('#btnMostrarTexto').click(function() {
+            $('#texto').text('¡jQuery es génial!');
+        });
+    </script>
+</body>
+</html>
