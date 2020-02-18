@@ -1,0 +1,35 @@
+<!-- Ejercicio 474: Seleccionar los elementos hijos de un elemento con la librería jQuery. -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 474</title>
+    <style>
+        .resaltado {
+            background-color: yellow;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p class="resaltado">JavaScript</p>
+        <span>Lenguajes de programación</span>
+        <div class="resaltado">jQuery</div>
+        <p>Librerías y plugins jQuery</p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('div').children('.resaltado').css('color', 'green');
+        });
+    </script>
+</body>
+
+</html>
