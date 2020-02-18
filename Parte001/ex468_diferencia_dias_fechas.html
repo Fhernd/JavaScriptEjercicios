@@ -1,0 +1,25 @@
+<!-- Ejercicio 468: Usar la librería Moment.js para operaciones con fechas. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 468</title>
+</head>
+<body>
+
+    <div id="resultado"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+    <script>
+        let ahora = moment();
+        let fechaNacimientoTuring = moment('June 23, 1912');
+
+        let diferenciaDias = ahora.diff(fechaNacimientoTuring, 'days');
+
+        document.getElementById('resultado').innerText = diferenciaDias;
+    </script>
+</body>
+</html>
