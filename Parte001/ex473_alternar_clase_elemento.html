@@ -1,0 +1,42 @@
+<!-- Ejercicio 473: Alternar una clase CSS sobre un elemento con la librería jQuery. -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 473</title>
+    <style>
+        .caja {
+            background-color: crimson;
+            height: 300px;
+            width: 300px;
+            border: 2px solid black;
+            padding: 5px;
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 300px;
+            color: white;
+            font-size: xx-large;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="contenedor">¡jQuery es tremendo!</div>
+    <button id="btnAlternarEstiloDiv">Alternar Estilo</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#btnAlternarEstiloDiv').click(function() {
+                $('#contenedor').toggleClass('caja');
+            });
+        });
+    </script>
+</body>
+
+</html>
