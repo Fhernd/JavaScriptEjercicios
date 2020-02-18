@@ -1,0 +1,39 @@
+<!-- Ejercicio 477: Hacer que un elemento HTML sea arrastrable por medio de jQuery UI. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 477</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
+
+    <style>
+        .caja{
+            background-color: crimson;
+            height: 200px;
+            width: 200px;
+            border: 2px solid black;
+            padding: 5px;
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 200px;
+            color: white;
+            font-size: medium;
+        }
+    </style>
+</head>
+<body>
+    <div class="caja" id="arrastrable">Caja arrastrable</div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#arrastrable').draggable();
+        });
+    </script>
+</body>
+</html>
