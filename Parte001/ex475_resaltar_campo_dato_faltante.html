@@ -1,0 +1,37 @@
+<!-- Ejercicio 475: Resaltar la ausencia de valor en un campo para asegurar accesibilidad con jQuery. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 475</title>
+
+    <style>
+        [aria-invalid] {
+            background-color: lightsalmon;
+        }
+
+        [aria-valid] {
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        function validarCampo(){
+            if($(this).val().length == 0){
+                $(this).attr('aria-invalid', 'true');
+            } else {
+                $(this).attr('aria-valid', 'true');
+            }
+        }
+
+        $('#nombre').blur(validarCampo);
+    </script>
+</body>
+</html>
