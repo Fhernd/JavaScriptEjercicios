@@ -1,0 +1,23 @@
+<!-- Ejercicio 486: Usar la función memoize() de Underscore.js para la serie Fibonacci. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 486</title>
+</head>
+<body>
+
+    <div id="resultado"></div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+    <script>
+        let fibonacci = _.memoize(function(n) {
+            return n < 2 ? n : fibonacci(n - 1) + fibonacci(n - 2);
+        });
+
+        document.getElementById('resultado').innerText = fibonacci(15);
+    </script>
+</body>
+</html>
