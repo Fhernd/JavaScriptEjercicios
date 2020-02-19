@@ -1,0 +1,37 @@
+<!-- Ejercicio 478: Hacer que un elemento HTML sea redimensionable por medio de jQuery UI. -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 478</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
+    <style>
+        .caja{
+            width: 200px;
+            height: 200px;
+            padding: 0.7em;
+        }
+        .caja h3 {
+            text-align: center;
+            margin: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="contenedor" class="caja ui-widget-content">
+        <h3 class="ui-widget-header">Redimensionable</h3>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+
+    <script>
+        $('#contenedor').resizable();
+    </script>
+</body>
+
+</html>
