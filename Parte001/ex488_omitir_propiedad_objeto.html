@@ -1,0 +1,33 @@
+<!-- Ejercicio 488: Usar omit() de Underscore.js para omitir una propiedad de un objeto. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 488</title>
+</head>
+<body>
+
+    <p id="producto"></p>
+    <p id="productoSinPrecio"></p>
+    <p id="productoSinAtributosCadena"></p>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+
+    <script>
+        let producto = {id: 1001, nombre: 'Mouse', categoria: 'Periférico', precio: 29.9};
+
+        let productoSinPrecio = _.omit(producto, 'precio');
+
+        document.getElementById('producto').innerText = JSON.stringify(producto);
+        document.getElementById('productoSinPrecio').innerText = JSON.stringify(productoSinPrecio);
+        
+        let productoSinAtributosCadena = _.omit(producto, function(valor) {
+            return _.isString(valor);
+        });
+        
+        document.getElementById('productoSinAtributosCadena').innerText = JSON.stringify(productoSinAtributosCadena);
+    </script>
+</body>
+</html>
