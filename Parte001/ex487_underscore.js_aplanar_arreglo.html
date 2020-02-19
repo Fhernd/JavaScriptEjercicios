@@ -1,0 +1,24 @@
+<!-- Ejercicio 487: Usar flatten() de Underscore.js para aplanar un arreglo. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 487</title>
+</head>
+<body>
+
+    <p id="resultado"></p>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+
+    <script>
+        let arreglo = [[1, 2, 3], [[4, 5]], 6, [7, 8], [[[9]]]];
+        // [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        let resultado = _.flatten(arreglo);
+
+        document.getElementById('resultado').innerText = resultado;
+    </script>
+</body>
+</html>
