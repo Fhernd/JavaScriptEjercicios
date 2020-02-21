@@ -1,0 +1,26 @@
+<!-- Ejercicio 498: Obtener contenido JSON con una solicitud GET usando XMLHttpRequest. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 498</title>
+</head>
+<body>
+    <p id="respuestaJson"></p>
+
+    <script>
+        let respuesta = new XMLHttpRequest();
+        respuesta.open('GET', 'https://randomuser.me/api/?results=10');
+
+        respuesta.onreadystatechange = function() {
+            if (this.readyState === XMLHttpRequest.DONE && this.status === 200){
+                let respuestaJson = JSON.parse(this.responseText);
+                document.getElementById('respuestaJson').innerText = this.responseText;
+            }
+        };
+        respuesta.send();
+    </script>
+</body>
+</html>
