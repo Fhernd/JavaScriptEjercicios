@@ -1,0 +1,25 @@
+<!-- Ejercicio 496: Realizar una solicitud tipo GET con el objeto XMLHttpRequest. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 496</title>
+</head>
+<body>
+
+    <p id="respuesta"></p>
+    
+    <script>
+        function callbackRespuesta(){
+            document.getElementById('respuesta').innerText = this.responseText;
+        }
+
+        let solicitud = new XMLHttpRequest();
+        solicitud.addEventListener('load', callbackRespuesta);
+        solicitud.open('GET', 'https://www.w3.org/TR/PNG/iso_8859-1.txt');
+        solicitud.send();
+    </script>
+</body>
+</html>
