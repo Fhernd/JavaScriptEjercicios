@@ -1,0 +1,26 @@
+<!-- Ejercicio 493: Usar shuffle() de Underscore.js para aleatorizar los elementos de un arreglo. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 493</title>
+</head>
+<body>
+
+    <p id="numeros"></p>
+    <p id="resultado"></p>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+
+    <script>
+        let numeros = [2, 3, 5, 7, 11];
+        let resultado = _.shuffle(numeros);
+
+        document.getElementById('numeros').innerText = numeros;
+        document.getElementById('resultado').innerText = resultado;
+    </script>
+
+</body>
+</html>
