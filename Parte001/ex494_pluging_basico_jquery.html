@@ -1,0 +1,25 @@
+<!-- Ejercicio 494: Crear una función como parte de un plugin de jQuery. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 494</title>
+</head>
+<body>
+
+    <p id="texto">¡jQuery es tremendo!</p>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $.fn.cambiarColor = function(color) {
+            this.css('color', color);
+        };
+
+        setTimeout(() => {
+            $('#texto').cambiarColor('red');
+        }, 5000);
+    </script>
+</body>
+</html>
