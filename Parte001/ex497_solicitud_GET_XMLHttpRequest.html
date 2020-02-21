@@ -1,0 +1,26 @@
+<!-- Ejercicio 497: Usar onreadystatechange para responder a la solicitud GET de XMLHttpRequest. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 497</title>
+</head>
+<body>
+
+    <p id="respuesta"></p>
+    
+    <script>
+
+        let solicitud = new XMLHttpRequest();
+        solicitud.open('GET', 'https://www.w3.org/TR/PNG/iso_8859-1.txt');
+        solicitud.onreadystatechange = function() {
+            if (solicitud.readyState === XMLHttpRequest.DONE && solicitud.status === 200){
+                document.getElementById('respuesta').innerText = solicitud.responseText;
+            }
+        };
+        solicitud.send();
+    </script>
+</body>
+</html>
