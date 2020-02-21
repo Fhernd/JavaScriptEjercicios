@@ -1,0 +1,32 @@
+<!-- Ejercicio 500: Crear un servidor con Node.js para enviar contenido JSON a un cliente. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 500</title>
+</head>
+<body>
+
+    <p id="usuario1"></p>
+    <p id="usuario2"></p>
+    
+    <script>
+        let respuesta = new XMLHttpRequest();
+        respuesta.open('GET', 'http://localhost:80');
+        respuesta.onreadystatechange = function() {
+            if (this.readyState == XMLHttpRequest.DONE && this.status === 200){
+                let usuarios = JSON.parse(this.responseText);
+
+                document.getElementById('usuario1').innerText = usuarios['results'][0]['gender'];
+                document.getElementById('usuario2').innerText = usuarios['results'][1]['gender'];
+            }
+        };
+
+        respuesta.send();
+    </script>
+</body>
+</html>
+
+
