@@ -1,0 +1,32 @@
+<!-- Ejercicio 505: Usar la Web API Fetch para realizar una solicitud GET a un servidor local. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 505</title>
+</head>
+<body>
+    
+    <button onclick="realizarSolicitud();">Realizar solicitud fetch</button>
+
+    <textarea id="resultado" cols="30" rows="10"></textarea>
+
+    <script>
+        function realizarSolicitud() {
+            let url = 'http://localhost:80';
+
+            fetch(url)
+            .then((response) => {
+                return response.json();
+            })
+            .then((usuarios) => {
+                // document.getElementById('resultado').value = JSON.stringify(usuarios);
+                document.getElementById('resultado').value = usuarios['results'][1]['name']['first'];
+            });
+        }
+    </script>
+
+</body>
+</html>
