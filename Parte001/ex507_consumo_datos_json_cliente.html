@@ -9,5 +9,24 @@
 </head>
 <body>
     
+    <script>
+        function obtenerDatos() {
+            if(this.readyState === 4 && this.status === 200){
+                try {
+                    let versionesLenguajes = JSON.parse(this.responseText);
+                    versionesLenguajes.lenguajes.forEach((l) => {
+                        console.log(l);
+                    });
+                } catch (error) {
+                    console.log('Error -> ', error);
+                }
+            }
+        }
+
+        let solicitud = new XMLHttpRequest();
+        solicitud.open('GET', 'http://localhost:4900');
+        solicitud.onreadystatechange = obtenerDatos;
+        solicitud.send();
+    </script>
 </body>
 </html>
