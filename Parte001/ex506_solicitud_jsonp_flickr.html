@@ -1,0 +1,35 @@
+<!-- Ejercicio 506: Realizar una Solicitud Ajax a un dominio diferente con JSONP. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 506</title>
+</head>
+<body>
+
+    <div id="resultado"></div>
+    
+    <script>
+        function agregarScript(url){
+            let nuevoScript = document.createElement('script');
+            nuevoScript.src = url;
+            document.body.appendChild(nuevoScript);
+        }
+
+        function procesarFotos(objeto){
+            let fotos = objeto.photos.photo;
+            let resultado = '';
+
+            fotos.forEach(function(foto) {
+                resultado += `${foto.title} </br>`;
+            });
+
+            document.getElementById('resultado').innerHTML = resultado;
+        }
+
+        agregarScript('https://api.flickr.com/services/rest/?method=flickr.galleries.getPhotos&api_key=a274795b1dad3df8d54018c4c1b41763&gallery_id=72157690043684744&format=json&jsoncallback=procesarFotos')
+    </script>
+</body>
+</html>
