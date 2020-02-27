@@ -1,0 +1,26 @@
+<!-- Ejercicio 508: Poblar un elemento select de forma dinámica con datos de un servidor. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 508</title>
+</head>
+<body>
+    <form>
+        <p>Seleccione opción:</p>
+        <fieldset id="opciones">
+            <input type="radio" name="opcion" value="lenguajes">
+            <label for="lenguajes">Lenguajes</label>
+
+            <input type="radio" name="opcion" value="librerias">
+            <label for="librerias">Librerías</label>
+
+            <input type="radio" name="opcion" value="frameworks">
+            <label for="frameworks">Frameworks</label>
+        </fieldset>
+        <select id="resultado" style='display: none'></select>
+    </form>
+</body>
+</html>
