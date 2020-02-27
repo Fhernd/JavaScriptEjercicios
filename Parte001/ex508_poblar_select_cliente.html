@@ -22,5 +22,27 @@
         </fieldset>
         <select id="resultado" style='display: none'></select>
     </form>
+
+    <script>
+
+        function poblarSelect(){
+            let opcionSeleccionada;
+            let inputs = document.getElementsByTagName('input');
+            for(let i = 0; i < inputs.length; ++i){
+                if(inputs[i].checked){
+                    opcionSeleccionada = input[i].value;
+                    break;
+                }
+            }
+
+            let solicitud = new XMLHttpRequest();
+            solicitud.open('GET', `http://localhost:4900?opcion=${opcionSeleccionada}`);
+            solicitud.onreadystatechange = obtenerDatos;
+            solicitud.send(null);
+        }
+
+        document.getElementById('opciones').onclick = poblarSelect;
+
+    </script>
 </body>
 </html>
