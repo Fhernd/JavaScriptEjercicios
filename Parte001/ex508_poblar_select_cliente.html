@@ -30,15 +30,32 @@
             let inputs = document.getElementsByTagName('input');
             for(let i = 0; i < inputs.length; ++i){
                 if(inputs[i].checked){
-                    opcionSeleccionada = input[i].value;
+                    opcionSeleccionada = inputs[i].value;
                     break;
                 }
             }
 
             let solicitud = new XMLHttpRequest();
-            solicitud.open('GET', `http://localhost:4900?opcion=${opcionSeleccionada}`);
+            solicitud.open('GET', `http://localhost:4900?opcion=${opcionSeleccionada}`, true);
             solicitud.onreadystatechange = obtenerDatos;
             solicitud.send(null);
+        }
+
+        function obtenerDatos() {
+            if (this.readyState === 4 && this.status === 200){
+                let selectResultado = document.getElementById('resultado');
+                selectResultado.length = 0;
+
+                let resultado = JSON.parse(this.responseText);
+
+                for(let i = 0; i < resultado.length; ++i){
+                    selectResultado.options[selectResultado.length] = new Option(resultado[i], resultado[i]);
+                }
+
+                selectResultado.style.display = 'block';
+            } else {
+                alert('¡No hay respuesta del servidor!');
+            }
         }
 
         document.getElementById('opciones').onclick = poblarSelect;
