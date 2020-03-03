@@ -1,0 +1,62 @@
+<!-- Ejercicio 509: Poblar un elemento select de forma dinámica con datos de un servidor usando fetch. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 509</title>
+</head>
+<body>
+    <form>
+        <p>Seleccione opción:</p>
+        <fieldset id="opciones">
+            <input type="radio" name="opcion" value="lenguajes">
+            <label for="lenguajes">Lenguajes</label>
+
+            <input type="radio" name="opcion" value="librerias">
+            <label for="librerias">Librerías</label>
+
+            <input type="radio" name="opcion" value="frameworks">
+            <label for="frameworks">Frameworks</label>
+        </fieldset>
+        <select id="resultado" style='display: none'></select>
+    </form>
+
+    <script>
+
+        function poblarSelect(){
+            let opcionSeleccionada;
+            let inputs = document.getElementsByTagName('input');
+            for(let i = 0; i < inputs.length; ++i){
+                if(inputs[i].checked){
+                    opcionSeleccionada = inputs[i].value;
+                    break;
+                }
+            }
+
+            fetch(`http://localhost:4900?opcion=${opcionSeleccionada}`)
+            .then((response) => response.json())
+            .then((datos) => {
+                let selectResultado = document.getElementById('resultado');
+                selectResultado.length = 0;
+
+                let resultado = datos;
+
+                for(let i = 0; i < resultado.length; ++i){
+                    selectResultado.options[selectResultado.length] = new Option(resultado[i], resultado[i]);
+                }
+
+                selectResultado.style.display = 'block';
+            })
+            .catch((error) => {
+                console.log('Ha ocurrido un error.');
+                console.log(error);
+            });
+        }
+
+        document.getElementById('opciones').onclick = poblarSelect;
+
+    </script>
+</body>
+</html>
