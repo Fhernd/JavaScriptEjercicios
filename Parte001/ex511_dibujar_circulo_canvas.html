@@ -1,0 +1,25 @@
+<!-- Ejercicio 511: Dibujar un círculo sin relleno sobre un elemento canvas. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 511</title>
+</head>
+<body>
+    
+    <canvas id="circulo" width="300px" height="300px" style="border: 2px solid gray;"></canvas>
+
+    <script>
+        window.addEventListener('load', () => {
+            let canvasCirculo = document.getElementById('circulo');
+            let ctx = canvasCirculo.getContext('2d');
+
+            ctx.beginPath();
+            ctx.arc(150, 150, 100, 0, 2 * Math.PI);
+            ctx.stroke();
+        });
+    </script>
+</body>
+</html>
