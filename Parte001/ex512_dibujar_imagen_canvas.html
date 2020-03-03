@@ -1,0 +1,25 @@
+<!-- Ejercicio 512: Dibujar una imagen sobre un elemento HTML canvas. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 512</title>
+</head>
+<body>
+    <canvas id="canvasImagen" width="600px" height="600px"></canvas>
+
+    <script>
+        let canvasImagen = document.getElementById('canvasImagen');
+        let ctx = canvasImagen.getContext('2d');
+
+        let imagenLogoJS = document.createElement('img');
+        imagenLogoJS.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/480px-JavaScript-logo.png';
+
+        imagenLogoJS.addEventListener('load', () => {
+            ctx.drawImage(imagenLogoJS, 0, 0, 480, 480, 0, 0, 480, 480);
+        });
+    </script>
+</body>
+</html>
