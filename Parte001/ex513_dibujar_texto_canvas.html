@@ -1,0 +1,23 @@
+<!-- Ejercicio 513: Dibujar texto personalizado sobre un elemento HTML canvas. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 513</title>
+</head>
+<body>
+    <canvas id="textoPersonalizado" width="500px", height="200px" style="border: 2px solid gray;"></canvas>
+
+    <script>
+        window.addEventListener('load', () => {
+            let canvasTextoPersonalizado = document.getElementById('textoPersonalizado');
+            let ctx = canvasTextoPersonalizado.getContext('2d');
+
+            ctx.font = '35px Arial';
+            ctx.fillText('¡JavaScript es tremendo!', 20, 30);
+        });
+    </script>
+</body>
+</html>
