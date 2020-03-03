@@ -1,0 +1,22 @@
+<!-- Ejercicio 510: Dibujar un rectángulo relleno sobre un elemento canvas. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 510</title>
+</head>
+<body>
+    <canvas id="rectangulo" width="300" height="300" style="border: 2px solid gray;"></canvas>
+
+    <script>
+        window.addEventListener('load', () => {
+            let canvasRectangulo = document.getElementById('rectangulo');
+            let ctx = canvasRectangulo.getContext('2d');
+            ctx.fillStyle = '#FF0000';
+            ctx.fillRect(0, 0, 200, 150);
+        });
+    </script>
+</body>
+</html>
