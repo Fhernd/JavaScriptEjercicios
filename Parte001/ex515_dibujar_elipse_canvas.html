@@ -1,0 +1,24 @@
+<!-- Ejercicio 515: Dibujar una elipse sobre un elemento HTML canvas. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 515</title>
+</head>
+<body>
+    <canvas id="elipse" width="300px" height="300px" style="border: 2px solid gray;"></canvas>
+
+    <script>
+        window.addEventListener('load', () => {
+            let canvasElipse = document.getElementById('elipse');
+            let ctx = canvasElipse.getContext('2d');
+
+            ctx.beginPath();
+            ctx.ellipse(150, 150, 75, 150, Math.PI / 4, 0, 2 * Math.PI);
+            ctx.stroke();
+        });
+    </script>
+</body>
+</html>
