@@ -1,0 +1,27 @@
+<!-- Ejercicio 517: Dibujar un triángulo relleno sobre un elemento HTML canvas. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 517</title>
+</head>
+<body>
+    <canvas id="triangulo" width="300px" height="300px"></canvas>
+
+    <script>
+        window.addEventListener('load', () =>{
+            let triangulo = document.getElementById('triangulo');
+            let ctx = triangulo.getContext('2d');
+
+            ctx.beginPath();
+            ctx.fillStyle = 'crimson';
+            ctx.moveTo(100, 50);
+            ctx.lineTo(50, 150);
+            ctx.lineTo(150, 150);
+            ctx.fill();
+        });
+    </script>
+</body>
+</html>
