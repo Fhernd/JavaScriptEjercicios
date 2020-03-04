@@ -1,0 +1,56 @@
+<!-- Ejercicio 520: Dibujar un gráfico dinámico de líneas sobre un elemento HTML canvas. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 520</title>
+</head>
+
+<body>
+
+    <canvas id="lineas" width="700px" height="450px" style="border: 2px solid gray;"></canvas>
+
+    <script>
+        window.addEventListener('load', () => {
+            let canvasLineas = document.getElementById('lineas');
+            let ctx = canvasLineas.getContext('2d');
+
+            let colores = ['crimson', 'black', 'green'];
+            let puntos = [[[100, 100], [150, 50], [200, 185],
+            [250, 185], [300, 250], [350, 100], [400, 250],
+            [450, 100], [500, 20], [550, 80], [600, 120]],
+
+            [[100, 100], [150, 150], [200, 135],
+            [250, 285], [300, 150], [350, 150], [400, 280],
+            [450, 100], [500, 120], [550, 80], [600, 190]],
+
+            [[100, 200], [150, 100], [200, 35],
+            [250, 185], [300, 10], [350, 15], [400, 80],
+            [450, 100], [500, 120], [550, 80], [600, 120]]];
+
+            if (ctx) {
+                puntos.forEach((punto, indice, arregloPuntos) => {
+                    setTimeout(function () {
+                        ctx.beginPath();
+                        ctx.moveTo(0, 100);
+
+                        let color = colores[indice];
+                        ctx.strokeStyle = color;
+
+                        for (let i = 0; i < punto.length; ++i) {
+                            ctx.lineTo(punto[i][0], punto[i][1]);
+                        }
+
+                        ctx.stroke();
+                    }, indice * 5000);
+                });
+            }
+        });
+    </script>
+
+</body>
+
+</html>
