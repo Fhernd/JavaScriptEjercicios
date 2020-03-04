@@ -1,0 +1,24 @@
+<!-- Ejercicio 516: Dibujar rectángulos concéntricos sobre un elemento HTML canvas. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 516</title>
+</head>
+<body>
+    <canvas id="rectangulos" width="300px" height="300px"></canvas>
+    
+    <script>
+        window.addEventListener('load', () =>{
+            let rectangulos = document.getElementById('rectangulos');
+            let ctx = rectangulos.getContext('2d');
+
+            ctx.fillRect(50, 50, 150, 150);
+            ctx.clearRect(75, 75, 100, 100);
+            ctx.strokeRect(85, 85, 80, 80);
+        });
+    </script>
+</body>
+</html>
