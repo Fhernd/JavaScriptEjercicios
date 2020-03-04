@@ -1,0 +1,30 @@
+<!-- Ejercicio 518: Dibujar una cara de emoticon (emoji) sobre un elemento HTML canvas. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 518</title>
+</head>
+<body>
+    <canvas id="cara" width="300px" height="300px"></canvas>
+
+    <script>
+        window.addEventListener('load', () => {
+            let canvasCara = document.getElementById('cara');
+            let ctx = canvasCara.getContext('2d');
+
+            ctx.beginPath();
+            ctx.arc(150, 150, 100, 0, Math.PI * 2, true);
+            ctx.moveTo(130, 130);
+            ctx.arc(120, 130, 10, 0, Math.PI * 2);
+            ctx.moveTo(190, 130);
+            ctx.arc(180, 130, 10, 0, Math.PI * 2);
+            ctx.moveTo(200, 170);
+            ctx.arc(150, 170, 50, 0, Math.PI);
+            ctx.stroke();
+        });
+    </script>
+</body>
+</html>
