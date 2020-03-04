@@ -1,0 +1,34 @@
+<!-- Ejercicio 522: Agregar código JavaScript a un Elemento SVG. -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 522</title>
+</head>
+
+<body>
+    <svg width="600px" height="600px">
+        <script>
+            window.onload = function() {
+                let cuadrado = document.getElementById('cuadrado');
+                
+                cuadrado.onclick = function(){
+                    let color = this.getAttribute('fill');
+
+                    if (color == '#00ff00'){
+                        this.setAttribute('fill', '#0000ff');
+                    } else {
+                        this.setAttribute('fill', '#00ff00');
+                    }
+                }
+            }
+        </script>
+
+        <rect id="cuadrado" width="400px" height="400px" fill="#00ff00" x="20" y="20"/>
+    </svg>
+</body>
+
+</html>
