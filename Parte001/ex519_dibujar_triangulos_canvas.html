@@ -1,0 +1,34 @@
+<!-- Ejercicio 519: Dibujar dos triángulos con y sin relleno sobre un elemento HTML canvas. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 519</title>
+</head>
+<body>
+    <canvas id="triangulos" width="300px" height="300px" style="border: 2px solid gray;"></canvas>
+
+    <script>
+        window.addEventListener('load', () => {
+            let triangulos = document.getElementById('triangulos');
+            let ctx = triangulos.getContext('2d');
+
+            // Triángulo relleno:
+            ctx.beginPath();
+            ctx.moveTo(100, 100);
+            ctx.lineTo(150, 100);
+            ctx.lineTo(100, 150);
+            ctx.fill();
+            
+            ctx.beginPath();
+            ctx.moveTo(160, 150);
+            ctx.lineTo(160, 100);
+            ctx.lineTo(110, 150);
+            ctx.closePath();
+            ctx.stroke();
+        });
+    </script>
+</body>
+</html>
