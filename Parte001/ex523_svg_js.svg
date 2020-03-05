@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Ejercicio 523: Embeber código JavaScript en un archivo tipo SVG. -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="600px" height="600px">
+    <script type="text/ecmascript">
+        <![CDATA[
+            window.onload = function() {
+                let cuadrado = document.getElementById('cuadrado');
+
+                cuadrado.onclick = function() {
+                    let color = this.getAttribute('fill');
+
+                    if (color == "#00ff00"){
+                        this.setAttribute('fill', "#0000ff");
+                    } else {
+                        this.setAttribute('fill', "#00ff00");
+                    }
+                }
+            }
+        ]]>
+    </script>
+
+    <rect id="cuadrado" width="400px" height="400px" fill="#00ff00" x="20" y="20" />
+</svg>
+
