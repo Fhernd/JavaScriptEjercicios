@@ -1,0 +1,34 @@
+<!-- Ejercicio 524: Ejecutar una acción una vez finalice la reproducción de un audio. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 524</title>
+</head>
+<body>
+    
+    <audio id="ondasGravitacionales" controls>
+        <source src="gravitational-waves-ligo.mp3" type="audio/mpeg3"/>
+        <source src="gravitational-waves-ligo.ogg" type="audio/ogg"/>
+        <source src="gravitational-waves-ligo.wav" type="audio/wav"/>
+    </audio>
+
+    <p id="acercaDe"></p>
+
+    <script>
+        function acercaDe(){
+            let parrafoAcercaDe = document.getElementById('acercaDe');
+
+            parrafoAcercaDe.innerText = 'Ud. ha escuchado el primer sonido de ondas gravitacionales detectadas por el interferómetro LIGO (2015-Sep-14).';
+        }
+
+        window.addEventListener('load', () =>{
+            let ondasGravitacionales = document.getElementById('ondasGravitacionales');
+
+            ondasGravitacionales.addEventListener('ended', acercaDe)
+        });
+    </script>
+</body>
+</html>
