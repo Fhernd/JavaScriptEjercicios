@@ -30,11 +30,17 @@
         }
 
         function detenerReproduccion() {
-            
+            let ondasGravitacionales = document.getElementById('ondasGravitacionales');
+            ondasGravitacionales.pause();
+            ondasGravitacionales.currentTime = 0;
+
+            document.getElementById('iniciar').disabled = false;
+            document.getElementById('pausar').disabled = true;
+            this.disabled = true;
         }
 
         function pausarReproduccion () {
-
+            
         }
 
         function actualizarTiempoReproduccion() {
