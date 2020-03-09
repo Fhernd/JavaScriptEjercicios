@@ -16,17 +16,21 @@
     <div id="tiempoReproduccion"></div>
     <div id="controles">
         <button id="iniciar">Iniciar</button>
-        <button id="detener">Detener</button>
-        <button id="pausar">Pausar</button>
+        <button id="detener" disabled>Detener</button>
+        <button id="pausar" disabled>Pausar</button>
     </div>
 
     <script>
         function iniciarReproduccion() {
-
+            let ondasGravitacionales = document.getElementById('ondasGravitacionales');
+            ondasGravitacionales.play();
+            this.disabled = true;
+            document.getElementById('detener').disabled = false;
+            document.getElementById('pausar').disabled = false;
         }
 
         function detenerReproduccion() {
-
+            
         }
 
         function pausarReproduccion () {
