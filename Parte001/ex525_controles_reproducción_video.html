@@ -40,7 +40,10 @@
         }
 
         function pausarReproduccion () {
-            
+            document.getElementById('ondasGravitacionales').pause();
+            this.disabled = true;
+            document.getElementById('iniciar').disabled = false;
+            document.getElementById('detener').disabled = true;
         }
 
         function actualizarTiempoReproduccion() {
