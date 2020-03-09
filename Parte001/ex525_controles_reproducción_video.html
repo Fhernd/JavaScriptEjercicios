@@ -13,6 +13,7 @@
         <source src="gravitational-waves-ligo-video.mp4" type="video/mp4" />
         <source src="gravitational-waves-ligo-video.webm" type="video/webm" />
     </video>
+    <div id="tiempoReproduccion"></div>
     <div id="controles">
         <button id="iniciar">Iniciar</button>
         <button id="detener">Detener</button>
@@ -29,13 +30,28 @@
         }
 
         function pausarReproduccion () {
-            
+
+        }
+
+        function actualizarTiempoReproduccion() {
+            let tiempo = Math.round(this.currentTime);
+            let tiempoReproduccion = document.getElementById('tiempoReproduccion');
+            tiempoReproduccion.innerHTML = `${tiempo} segundos`;
         }
 
         window.addEventListener('load', () => {
             document.getElementById('iniciar').addEventListener('click', iniciarReproduccion);
             document.getElementById('detener').addEventListener('click', detenerReproduccion);
             document.getElementById('pausar').addEventListener('click', pausarReproduccion);
+
+            let ondasGravitacionales = document.getElementById('ondasGravitacionales');
+            ondasGravitacionales.addEventListener('timeupdate', actualizarTiempoReproduccion);
+
+            let deteccionVideo = document.createElement('video');
+
+            if(!deteccionVideo.canPlayType){
+                documento.getElementById('controles').style.display = 'none';
+            }
         });
     </script>
 </body>
