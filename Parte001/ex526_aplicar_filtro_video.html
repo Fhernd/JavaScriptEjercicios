@@ -1,0 +1,36 @@
+<!-- Ejercicio 526: Aplicar un filtro a un vídeo por medio de un elemento canvas. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 526</title>
+</head>
+<body>
+    
+    <video id="pizzaCat">
+        <source src="pizzacat.mp4" type="video/mp4">
+        <source src="pizzacat.webm" type="video/webm">
+    </video>
+    
+    <canvas id="canvasPizzaCat" width="480" height="360"></canvas>
+
+    <script>
+        function dibujarVideo(){
+            let pizzaCat = document.getElementById('pizzaCat');
+
+            if(pizzaCat.paused || pizzaCat.ended){
+                return false;
+            }
+
+            let canvasPizzaCat = document.getElementById('canvasPizzaCat');
+        }
+
+        window.addEventListener('load', () => {
+            document.getElementById('pizzaCat').addEventListener('play', dibujarVideo);
+        });
+    </script>
+
+</body>
+</html>
