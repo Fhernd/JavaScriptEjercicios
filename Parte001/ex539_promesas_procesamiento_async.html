@@ -17,7 +17,7 @@
             let promesa = new Promise(function(resolve, reject) {
                 let solicitud = new XMLHttpRequest();
 
-                solicitud.open('GET', 'https://randouser.me/api/?results=10');
+                solicitud.open('GET', 'https://randomuser.me/api/?results=10');
                 solicitud.onload = function() {
                     if(solicitud.status == 200){
                         resolve(solicitud.response);
