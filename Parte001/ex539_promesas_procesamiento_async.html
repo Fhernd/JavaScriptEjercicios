@@ -1,0 +1,49 @@
+<!-- Ejercicio 539: Usar una promesa para procesamiento asincrónico eficiente. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 539</title>
+</head>
+<body>
+    
+    <div id="resultado"></div>
+
+    <script>
+
+        window.addEventListener('load', () =>{
+            let promesa = new Promise(function(resolve, reject) {
+                let solicitud = new XMLHttpRequest();
+
+                solicitud.open('GET', 'https://randouser.me/api/?results=10');
+                solicitud.onload = function() {
+                    if(solicitud.status == 200){
+                        resolve(solicitud.response);
+                    } else {
+                        reject(solicitud.statusText);
+                    }
+                };
+
+                solicitud.onerror = function() {
+                    reject('Error de red');
+                };
+
+                solicitud.send();
+            });
+
+            promesa.then(
+                function(response){
+                    document.getElementById('resultado').innerHTML = response;
+                },
+                function(error){
+                    document.getElementById('resultado').innerHTML = error;
+                }
+            );
+        });
+
+    </script>
+
+</body>
+</html>
