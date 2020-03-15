@@ -1,1 +1,2 @@
 ¡JavaScript es tremendo!
+JavaScript también se puede ejecutar en el servidor para crear aplicaciones tipo backend.
