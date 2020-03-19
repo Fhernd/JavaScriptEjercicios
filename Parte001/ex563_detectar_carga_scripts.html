@@ -1,0 +1,33 @@
+<!-- Ejercicio 563: Usar el script loader head.js para detectar la carga completa de scripts. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 563</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/headjs/1.0.3/head.min.js"></script>
+</head>
+<body>
+
+    <script>
+        head.js('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js');
+    </script>
+
+    <h1>Script Loader</h1>
+
+    <p>head.js es una librería tipo script loader.</p>
+
+    <p id="respuesta"></p>
+
+    <img src="https://github.com/gothinkster/node-express-realworld-example-app/raw/master/project-logo.png" alt="Imagen">
+
+    <script>
+        head.ready(function(){
+            document.getElementById('respuesta').innerText = 'Todas las librerías han sido cargadas de forma asíncrona por Head.js.';
+        });
+    </script>
+    
+</body>
+</html>
