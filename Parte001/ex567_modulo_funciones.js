@@ -11,7 +11,7 @@ define(function() {
         multiplicacion: function(a, b){
             return a * b;
         },
-        división: function(a, b){
+        division: function(a, b){
             if (b != 0){
                 return a / b;
             } else {
