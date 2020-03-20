@@ -1,4 +1,4 @@
-// Ejercicio 567: Crear un módulo de funciones para ser utilizable en RequireJS.
+// Ejercicio 567: Crear un módulo de funciones para ser utilizada en RequireJS.
 
 define(function() {
     return {
