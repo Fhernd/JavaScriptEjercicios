@@ -1,0 +1,42 @@
+<!-- Ejercicio 564: Usar el script loader head.js para animación una vez se cargue la librería jQuery. -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 564</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/headjs/1.0.3/head.min.js"></script>
+</head>
+
+<body>
+    <h1>Head.js - Script Loader</h1>
+
+    <script>
+        head(function(){
+            $('h1').effect('pulsate', {times: 3}, 2000);
+        });
+    </script>
+
+    <script>
+        head.js('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js');
+    </script>
+
+    <p>head.js es una librería tipo script loader.</p>
+
+    <p id="respuesta"></p>
+
+    <img src="https://github.com/gothinkster/node-express-realworld-example-app/raw/master/project-logo.png"
+        alt="Imagen">
+
+    <script>
+        head.ready(function () {
+            document.getElementById('respuesta').innerText = 'Todas las librerías han sido cargadas de forma asíncrona por Head.js.';
+        });
+    </script>
+
+</body>
+
+</html>
