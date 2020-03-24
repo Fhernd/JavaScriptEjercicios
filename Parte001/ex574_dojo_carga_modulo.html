@@ -1,0 +1,24 @@
+<!-- Ejercicio 574: Usar la librería Dojo para agregar contenido a un página Web. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 574</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/dojo/1.13.0/dojo/dojo.js" data-dojo-config="async: true"></script>
+</head>
+<body>
+    <div id="contenedor"></div>
+
+    <script>
+        require(['dojo/dom', 'dojo/dom-construct'], function(dom, domConstruct){
+            let contenedor = dom.byId('contenedor');
+            contenedor.innerHTML = 'Contenido para el contenedor.';
+
+            domConstruct.create('h1', {innerHTML: 'Dojo es génial!'}, contenedor, 'before');
+        });
+    </script>
+</body>
+</html>
