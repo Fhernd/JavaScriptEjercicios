@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 580</title>
+</head>
+
+<body>
+    <h1 id="project-1-item-catalog">Project 1 - Item Catalog</h1>
+    <h2 id="description">Description</h2>
+    <p>This application provides a list of items within a variety of categories as well as provide a user registration
+        and
+        authentication system. Registered users will have the ability to post, edit and delete their own items..</p>
+    <h2 id="files">Files</h2>
+    <ul>
+        <li><code>static</code>: All assets for CSS (Bootstrap) and JavaScript (jQuery and AlertifyJS).</li>
+        <li><code>templates</code>: Templates for HTML content. It contains modals for creating, editing and viewing
+            items catalog.</li>
+        <li><code>project.py</code>: main Python script for running the web application.</li>
+        <li><code>client_secrets.json</code>: Contains <code>client_id</code> and <code>client_secret</code> values from
+            Google Web App.</li>
+        <li><code>database_setup.py</code>: Setup database mapping creation.</li>
+        <li><code>google_auth.py</code>: Google Authentication configuration (credits <a
+                href="https://github.com/Justin-Tadlock/auth-playground">Justin-Tadlock</a>).</li>
+        <li><code>populate.py</code>: Populates the item catalog database (SQLite).</li>
+        <li><code>secret_key.txt</code>: Secret key for token generation.</li>
+        <li><code>readme.md = self</code></li>
+    </ul>
+    <h2 id="main-features">Main features</h2>
+    <p>The application meets the following requirements to create the user functionality:</p>
+    <ul>
+        <li><code>JSON endpoint</code> that serves the same information as displayed in the <code>HTML endpoints</code>
+            for an
+            arbitrary item in the catalog.</li>
+        <li>Website reads category and item information from a database.</li>
+        <li>Website includes a form allowing users to add new items and correctly processes submitted forms.</li>
+        <li>Website includes a form to edit/update a current record in the database table and correctly processes
+            submitted forms.</li>
+        <li>Website includes a function to delete a current record.</li>
+        <li>Create, delete and update operations do consider authorization status prior to execution.</li>
+        <li>Implements Google Accounts for authentication and authorization.</li>
+        <li>Login and logout buttons.</li>
+    </ul>
+    <h2 id="style-guide">Style guide</h2>
+    <p>Python files (<code>database_setup.py</code>, <code>google_auth.py</code>, <code>populate.py</code>) meets PEP 8
+        style guide.</p>
+    <h2 id="setup-and-execution">Setup and execution</h2>
+    <h3 id="virtual-machine">Virtual machine</h3>
+    <p>Follow this link (Udacity&#39;s repo) to get running a virtual machine for development: <a
+            href="https://github.com/udacity/fullstack-nanodegree-vm">here</a></p>
+    <p>This virtual machine contains all of the basic elements to start working a database (PostgreSQL), Python
+        programming language and libraries (SQLAlchemy, Bleach, etc.)</p>
+    <h3 id="database">Database</h3>
+    <p>The following steps are required to get a SQLite database created and populated.</p>
+    <ol>
+        <li>Run <code>python database_setup.py</code> to create the database schema. This will generate a SQLite file
+            named <code>itemcatalog.db</code>.</li>
+        <li>Run <code>python populate_setup.py</code> to populate the database.</li>
+    </ol>
+    <h3 id="depedencies">Depedencies</h3>
+    <p>This project depends on the following <strong>additional</strong> Python modules installation:</p>
+    <ul>
+        <li><code>$ sudo pip install google-auth</code></li>
+        <li><code>$ sudo pip install flask-cors</code></li>
+    </ul>
+    <p><strong>Note</strong>: Other modules (Flask, SQLAlchemy, etc) has been installed previously on the virtual
+        machine.</p>
+    <h3 id="execution">Execution</h3>
+    <p>Type following command to execute the application:</p>
+    <ul>
+        <li><code>$python project.py</code>: will run the application on <code>localhost:5000</code>.</li>
+    </ul>
+    <h3 id="instructional-demonstration-video">Instructional/Demonstration Video</h3>
+    <p><a href="https://youtu.be/hZAvGsjxX_Q">https://youtu.be/hZAvGsjxX_Q</a></p>
+    <h3 id="issues">Issues</h3>
+    <p>The virtual machine must have time sync with the server. If you experiment issues while login with the Google
+        Account, please sync the time of the virtual machine with this command (a date/time example is given, do it
+        accordingly with
+        the current date/time):</p>
+    <p><code>$ sudo date --set=&quot;2019-08-28 05:41:53.000&quot;</code></p>
+</body>
+
+</html>
