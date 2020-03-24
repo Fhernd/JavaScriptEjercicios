@@ -1,5 +1,5 @@
 {
-  "name": "Parte001",
+  "name": "demo-bower",
   "homepage": "https://github.com/Fhernd/JavaScriptEjercicios",
   "authors": [
     "John Ortiz Ordoñez"
@@ -18,5 +18,8 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "jquery": "^3.4.1"
+  }
 }
