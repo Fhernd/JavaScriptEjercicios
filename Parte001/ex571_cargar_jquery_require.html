@@ -1,0 +1,21 @@
+<!-- Ejercicio 571: Usar RequireJS para cargar jQuery o cualquier otra librería. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 571</title>
+
+    <script src="./require.js"></script>
+</head>
+<body>
+    <h1>Cargar jQuery con RequireJS</h1>
+
+    <script>
+        require(['./jquery'], function($) {
+            $('h1').css('color', 'crimson');
+        });
+    </script>
+</body>
+</html>
