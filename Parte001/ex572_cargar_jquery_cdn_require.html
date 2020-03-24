@@ -1,0 +1,29 @@
+<!-- Ejercicio 572: Usar RequireJS para cargar jQuery desde un CDN. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 572</title>
+
+    <script src="./require.js"></script>
+</head>
+<body>
+    <h1>Cargar jQuery desde un CDN con RequireJS</h1>
+
+    <script>
+        requirejs.config({
+            appDir: '.',
+            baseUrl: 'js',
+            paths: {
+                'jquery': ['//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min']
+            }
+        });
+
+        require(['jquery'], function($){
+            $('h1').css('color', 'crimson');
+        });
+    </script>
+</body>
+</html>
