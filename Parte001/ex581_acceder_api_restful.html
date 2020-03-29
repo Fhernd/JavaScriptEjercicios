@@ -1,0 +1,24 @@
+<!-- Ejercicio 581: Acceder a contenido JSON a través de una API RESTful. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 581</title>
+</head>
+<body>
+
+    <p id="resultado"></p>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <script>
+        window.addEventListener('load', () => {
+            $.getJSON('https://randomuser.me/api/?results=5', function(datos) {
+                $('#resultado').text(JSON.stringify(datos));
+            });
+        });
+    </script>
+</body>
+</html>
