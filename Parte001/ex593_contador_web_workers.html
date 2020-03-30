@@ -1,0 +1,36 @@
+<!-- Ejercicio 593: Uso de Web Workers para crear un contador numérico en un thread diferente. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 593</title>
+</head>
+<body>
+    
+    <p>Contador: <span id="contador"></span></p>
+    <button onclick="iniciarContador();">Iniciar contador</button>
+    <button onclick="detenerContador();">Detener contador</button>
+
+    <script>
+        let workerContador;
+
+        function iniciarContador() {
+            workerContador = new Worker('./ex593_contador.js');
+
+            workerContador.onmessage = function(evento) {
+                document.getElementById('contador').innerText = evento.data;
+            }
+        }
+
+        function detenerContador() {
+            workerContador.terminate();
+            workerContador = null;
+        }
+        window.addEventListener('load', () => {
+
+        })
+    </script>
+</body>
+</html>
