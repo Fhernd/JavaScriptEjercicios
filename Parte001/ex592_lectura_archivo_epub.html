@@ -28,7 +28,17 @@
         }
 
         function abrirArchivo(){
-            
+            let parser = new DOMParser();
+            console.log(this.result);
+            let contenidoXml = parser.parseFromString(this.result, 'text/xml');
+
+            let contenido = contenidoXml.getElementsByTagName('body');
+
+            if (contenido.length > 0){
+                let contenidoLibro = contenido[0].innerHTML;
+                console.log(contenidoLibro)
+                document.getElementById('contenidoEpub').innerHTML = contenidoLibro;
+            }
         }
 
         window.addEventListener('load', () => {
