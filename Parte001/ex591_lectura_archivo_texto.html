@@ -1,0 +1,43 @@
+<!-- Ejercicio 591: Leer el contenido de un archivo de texto plano con File API. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 591</title>
+</head>
+<body>
+    Seleccione el archivo de texto plano: 
+    <input type="file" id="archivoTexto">
+    <hr>
+    <textarea id="contenido" cols="30" rows="10"></textarea>
+
+    <p id="mensajes"></p>
+
+    <script>
+
+        function abrirArchivo(evento){
+            let archivo = evento.target.files[0];
+
+            if (archivo){
+                let reader = new FileReader();
+
+                reader.onload = function(e) {
+                    let contenido = e.target.result;
+
+                    document.getElementById('contenido').innerText = contenido;
+                };
+
+                reader.readAsText(archivo);
+            } else {
+                document.getElementById('mensajes').innerText = 'No se ha seleccionado un archivo.';
+            }
+        }
+
+        window.addEventListener('load', () => {
+            document.getElementById('archivoTexto').addEventListener('change', abrirArchivo);
+        });
+    </script>
+</body>
+</html>
