@@ -1,0 +1,24 @@
+<!-- Ejercicio 585: Obtener contenido JSON de solicitud a galería de fotos de Flickr. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 585</title>
+</head>
+<body>
+
+    <p id="resultado"></p>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(() => {
+            $.getJSON('https://api.flickr.com/services/rest/?method=flickr.galleries.getPhotos&api_key=a274795b1dad3df8d54018c4c1b41763&gallery_id=72157690043684744&format=json&nojsoncallback=1', function(datos){
+                $('#resultado').text(JSON.stringify(datos));
+            });
+        });
+    </script>
+</body>
+</html>
