@@ -1,0 +1,40 @@
+<!-- Ejercicio 592: Leer el contenido de un archivo ePub con File API. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 592</title>
+</head>
+<body>
+    
+    <form>
+        <label for="nombreArchivoEpub">Nombre archivo ePub:</label>
+        <input type="file" id="nombreArchivoEpub">
+    </form>
+
+    <hr>
+
+    <div id="contenidoEpub"></div>
+
+    <script>
+        function seleccionArchivo(){
+            let listadoArchivos = this.files;
+            let reader = new FileReader();
+
+            reader.onload = abrirArchivo;
+            reader.readAsText(listadoArchivos[0]);
+        }
+
+        function abrirArchivo(){
+            
+        }
+
+        window.addEventListener('load', () => {
+            let nombreArchivoEpub = document.getElementById('nombreArchivoEpub');
+            nombreArchivoEpub.addEventListener('change', seleccionArchivo);
+        });
+    </script>
+</body>
+</html>
