@@ -13,7 +13,7 @@ servidor.get('/api/datos/:nombre', function retrieve(req, res, next){
 servidor.post('/api/datos/crear', function create(req, res, next) {
     console.log(req.params);
 
-    res.send('Se ha creado el registro de forma satisfactoria: ' + req.params.nombre);
+    res.send('Se ha creado el registro de forma satisfactoria: ' + req.body.nombre);
 
     return next();
 });
