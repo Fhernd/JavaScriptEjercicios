@@ -1,0 +1,33 @@
+<!-- Ejercicio 590: Habilitar las notificaciones para Web Notifications API. -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 590</title>
+</head>
+
+<body>
+
+    <button id="habilitarNotificaciones">Habilitar notificaciones</button>
+
+    <br>
+
+    <p id="resultado"></p>
+
+    <script>
+        window.addEventListener('load', () => {
+            document.getElementById('habilitarNotificaciones').addEventListener('click', () => {
+                Notification.requestPermission().then(function (permiso) {
+                    if (permiso === 'granted') {
+                        document.getElementById('resultado').innerText = 'Se han habilitado las notificaciones.';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
