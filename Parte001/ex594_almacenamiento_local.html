@@ -1,0 +1,41 @@
+<!-- Ejercicio 594: Uso de Web Storage para crear almacenamiento local en el navegador. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 594</title>
+</head>
+<body>
+    Nombre: <input type="text" id="nombre">
+    Correo-e: <input type="email" id="correo">
+    <button id="agregarRegistro">Agregar registro</button>
+
+    <hr>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Correo</th>
+            </tr>
+        </thead>
+        <tbody id="registros">
+
+        </tbody>
+    </table>
+
+    <script>
+
+        function agregarNuevoRegistro(){
+            
+        }
+
+        window.addEventListener('load', () => {
+            document.getElementById('agregarRegistro').addEventListener('click', agregarNuevoRegistro);
+        });
+    </script>
+
+</body>
+</html>
