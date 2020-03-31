@@ -19,8 +19,8 @@
     <table border="1">
         <thead>
             <tr>
-                <th>Nombre</th>
                 <th>Correo</th>
+                <th>Nombre</th>
             </tr>
         </thead>
         <tbody id="registros">
@@ -46,13 +46,22 @@
         }
 
         function cargarRegistros(){
+            let filas = '';
             Object.keys(localStorage).forEach(k => {
-                
-            })
+                let registro = JSON.parse(localStorage.getItem(k));
+                filas += `<tr>
+                    <td>${registro.correo}</td>    
+                    <td>${registro.nombre}</td>
+                </tr>`;
+            });
+
+            document.getElementById('registros').innerHTML = filas;
         }
 
         window.addEventListener('load', () => {
             document.getElementById('agregarRegistro').addEventListener('click', agregarNuevoRegistro);
+
+            cargarRegistros();
         });
     </script>
 
