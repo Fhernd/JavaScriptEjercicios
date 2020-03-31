@@ -2,11 +2,13 @@
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 594</title>
 </head>
+
 <body>
     Nombre: <input type="text" id="nombre">
     Correo-e: <input type="email" id="correo">
@@ -28,8 +30,25 @@
 
     <script>
 
-        function agregarNuevoRegistro(){
-            
+        function agregarNuevoRegistro() {
+            let nombre = document.getElementById('nombre').value;
+            let correo = document.getElementById('correo').value;
+
+            let nuevoRegistro = {
+                nombre: nombre,
+                correo: correo
+            };
+
+            if (localStorage.getItem(correo) === null) {
+                localStorage.setItem(correo, JSON.stringify(nuevoRegistro));
+                cargarRegistros();
+            }
+        }
+
+        function cargarRegistros(){
+            Object.keys(localStorage).forEach(k => {
+                
+            })
         }
 
         window.addEventListener('load', () => {
@@ -38,4 +57,5 @@
     </script>
 
 </body>
+
 </html>
