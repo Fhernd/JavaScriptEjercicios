@@ -1,0 +1,36 @@
+<!-- Ejercicio 595: Mostrar la posición relativa con la API de Geolocalización de HTML5. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 595</title>
+</head>
+<body>
+    
+    <p>Haga click sobre el botón la posición (latitud y longitud):</p>
+    <button id="obtenerPosicion">Obtener posición</button>
+
+    <p id="posicion"></p>
+
+    <script>
+        function obtenerPosicion() {
+            if (navigator.geolocation){
+                navigator.geolocation.getCurrentPosition((posicion) => {
+                    let datosPosicion = `Latitud: ${posicion.coords.latitude}
+                        <br>
+                        Longitud: ${posicion.coords.longitude}
+                    `;
+
+                    document.getElementById('posicion').innerHTML = datosPosicion;
+                })
+            }
+        }
+
+        window.addEventListener('load', () => {
+            document.getElementById('obtenerPosicion').addEventListener('click', obtenerPosicion);
+        });
+    </script>
+</body>
+</html>
