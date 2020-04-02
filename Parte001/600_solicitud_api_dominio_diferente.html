@@ -1,0 +1,30 @@
+<!-- Ejercicio 600: Realizar una solicitud a una API ubicada en un dominio o puerto diferente. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 600</title>
+</head>
+<body>
+
+    <p id="resultado"></p>
+
+    <script>
+        window.addEventListener('load', () => {
+            let solicitud = new XMLHttpRequest();
+
+            solicitud.onreadystatechange = function() {
+                if (this.readyState === 4 && this.status === 200){
+                    document.querySelector('#resultado').innerText = this.responseText;
+                }
+            };
+
+            solicitud.open('GET', 'http://localhost:4949');
+
+            solicitud.send();
+        });
+    </script>
+</body>
+</html>
