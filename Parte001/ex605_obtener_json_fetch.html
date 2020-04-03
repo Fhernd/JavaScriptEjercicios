@@ -1,0 +1,28 @@
+<!-- Ejercicio 605: Obtener datos en formato JSON desde una solicitud realizada con fetch() -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 605</title>
+</head>
+<body>
+    
+    <p id="resultado"></p>
+
+    <script>
+        window.addEventListener('load', () => {
+
+            fetch('https://randomuser.me/api/?results=5')
+            .then(respuesta => respuesta.json())
+            .then(datos => {
+                console.log(typeof datos);
+
+                document.querySelector('#resultado').innerText = JSON.stringify(datos);
+            })
+        });
+    </script>
+
+</body>
+</html>
