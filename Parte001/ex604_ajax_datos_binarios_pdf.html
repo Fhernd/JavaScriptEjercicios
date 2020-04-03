@@ -1,0 +1,34 @@
+<!-- Ejercicio 604: Recibir datos binarios en una solicitud fetch() para cargar una imagen. -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 604</title>
+</head>
+
+<body>
+
+    <img alt="Imagen" id="imagen">
+
+    <script>
+        window.addEventListener('load', () => {
+
+            fetch('https://images.unsplash.com/photo-1557546980-71f424518c96?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80')
+            .then(response => response.blob())
+            .then(datos => {
+                let imagen = document.querySelector('#imagen');
+
+                imagen.src = URL.createObjectURL(datos);
+
+                imagen.onload = function(evt) {
+                    URL.revokeObjectURL(this.src);
+                };
+            });
+        });
+    </script>
+</body>
+
+</html>
