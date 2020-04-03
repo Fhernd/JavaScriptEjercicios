@@ -1,0 +1,31 @@
+<!-- Ejercicio 606: Manipular los errores generados en una solicitud fetch() inválida. -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 606</title>
+</head>
+
+<body>
+    
+    <p id="resultado"></p>
+
+    <script>
+        window.addEventListener('load', () => {
+
+            fetch('http://www.estaurlnoexiste.com.co')
+            .then(respuesta => respuesta.json())
+            .then(datos => {
+                document.querySelector('#resultado').innerText = JSON.stringify(datos);
+            })
+            .catch(error => {
+                document.querySelector('#resultado').innerText = error;
+            });
+        });
+    </script>
+</body>
+
+</html>
