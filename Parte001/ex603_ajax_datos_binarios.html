@@ -1,0 +1,36 @@
+<!-- Ejercicio 603: Recibir datos binarios en una solicitud Ajax para cargar una imagen. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 603</title>
+</head>
+<body>
+    
+    <img alt="Imagen" id="imagen">
+
+    <script>
+        window.addEventListener('load', () => {
+            let imagen = document.querySelector('#imagen');
+            // imagen.src = 'https://images.unsplash.com/photo-1537498425277-c283d32ef9db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1057&q=80';
+            let solicitud = new XMLHttpRequest();
+
+            solicitud.responseType = 'blob';
+            solicitud.onload = function(evt) {
+                let blob = solicitud.response;
+                imagen.src = URL.createObjectURL(blob);
+            };
+
+            solicitud.open('GET', 'https://images.unsplash.com/photo-1537498425277-c283d32ef9db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1057&q=80');
+
+            solicitud.send();
+
+            imagen.onload = function(evt){
+                URL.revokeObjectURL(this.src);
+            };
+        });
+    </script>
+</body>
+</html>
