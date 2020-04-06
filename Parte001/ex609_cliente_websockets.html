@@ -1,0 +1,35 @@
+<!-- Ejercicio 609: Crear un cliente para establecer comunicación bidireccional con un servidor de WebSockets. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="resultado"></div>
+
+    <script>
+        window.addEventListener('load', () => {
+            let socket = new WebSocket('ws://localhost:5151');
+
+            socket.onmessage = function(evento) {
+
+                let datos = JSON.parse(evento.data);
+
+                datos.contador = parseInt(datos.contador) + 1;
+
+                datos.contenido += datos.contador + '-';
+
+                let parrafo = `<p>${datos.contenido}</p>`;
+
+                document.querySelector('#resultado').innerHTML = parrafo;
+
+                socket.send(JSON.stringify(datos));
+            };
+        });
+    </script>
+</body>
+</html>
