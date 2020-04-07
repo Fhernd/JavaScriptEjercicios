@@ -1,0 +1,31 @@
+<!-- Ejercicio 612: Crear un gráfico de barras con la librería D3. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 612</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.15.1/d3.min.js" integrity="sha256-SQJ/nCYPXFPuqoS56EfnesDBPNiitndOIfN2WdPRi/o=" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+
+    <script>
+        window.addEventListener('load', () => {
+            let datos = [53, 96, 13, 9, 43, 30, 19, 97, 84, 3, 52, 41, 24, 25, 31];
+
+            let anchoBarra = 27;
+            let alto = 400;
+
+            let x = d3.scaleLinear().domain([0, d3.max(datos)]).range([0, alto]);
+
+            let svg = d3.select('body').append('svg').attr('width', datos.length * (anchoBarra + 1))
+            .attr('height', alto);
+
+            svg.selectAll('rect').data(datos).enter().append('rect').attr('fill', 'crimson').attr('stroke', 'red').attr('x', function(d, i) {return i * (anchoBarra + 1)}).attr('y', function(d) {return alto - (x(d))}).attr('width', anchoBarra).attr('height', x);
+        });
+    </script>
+</body>
+</html>
