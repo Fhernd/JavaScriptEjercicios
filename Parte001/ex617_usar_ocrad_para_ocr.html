@@ -1,0 +1,46 @@
+<!-- Ejercicio 617: Usar la librería Ocrad.js para reconocer los caracteres de una imagen. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 617</title>
+</head>
+<body>
+    <!-- <img src="ocr.png" alt="OCR"> -->
+    <canvas id="canvasImagen" width="1547" height="579"></canvas>
+
+    <hr>
+
+    <textarea id="resultado" cols="30" rows="10"></textarea>
+
+    <script src="ocrad.js"></script>
+
+    <script>
+        window.addEventListener('load', () => {
+            let imagen = new Image();
+
+            imagen.addEventListener('load', function() {
+                let canvasImagen = document.querySelector('#canvasImagen');
+
+                let contexto = canvasImagen.getContext('2d');
+
+                contexto.drawImage(imagen, 0, 0);
+
+                let datosImagen = contexto.getImageData(0, 0, this.width, this.height);
+
+                try{
+                    let texto = OCRAD(datosImagen);
+
+                    document.querySelector('#resultado').innerText = texto;
+                } catch(error){
+                    document.querySelector('#resultado').innerText = "Error: " + error;
+                }
+            });
+
+            imagen.src = 'ocr.png';
+        });
+    </script>
+</body>
+</html>
