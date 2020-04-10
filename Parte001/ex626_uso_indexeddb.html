@@ -1,0 +1,69 @@
+<!-- Ejercicio 626: Demostración básica de IndexedDB - Base de Datos en el Navegador Web. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 626</title>
+</head>
+<body>
+    Nueva nota <br>
+    <form action="#">
+        <div>
+            <label for="contenido">Contenido nota:</label>
+            <input type="text" id="contenido">
+        </div>
+    </form>
+    <button id="btnAgregar">Agregar</button>
+
+    <hr>
+
+    <div id="resultado"></div>
+
+    <script>
+        window.addEventListener('load', () => {
+
+            let baseDatos;
+            let solicitudConexion = indexedDB.open('notasBd', 1);
+
+            solicitudConexion.onsuccess = function(evento) {
+                baseDatos = evento.target.result;
+            }
+
+            solicitudConexion.onerror = function(evento) {
+                document.querySelector('#resultado').innerText = `Error al abrir la base de datos: ${evento.target.errorCode}`;
+            }
+
+            solicitudConexion.onupgradeneeded = function(evento) {
+                baseDatos = event.target.result;
+
+                let notas = baseDatos.createObjectStore('notas', {autoIncrement: true});
+            }
+
+            document.querySelector('#btnAgregar').addEventListener('click', function(evento) {
+                let contenido = document.querySelector('#contenido').value;
+
+                if(contenido.length){
+                    let transaccion = baseDatos.transaction(['notas'], 'readwrite');
+                    let notas = transaccion.objectStore('notas');
+
+                    let nota = {contenido: contenido, estampa_tiempo: Date.now()};
+                    notas.add(nota);
+
+                    transaccion.oncomplete = function() {
+                        document.querySelector('#resultado').innerText = 'La nota se ha creado de forma satisfactoria.';
+                    }
+
+                    transaccion.onerror = function(evento) {
+                        document.querySelector('#resultado').innerText = `Error al intentar almacenar una nota: ${evento.target.errorCode}`;
+                    }
+
+                } else {
+                    document.querySelector('#resultado').innerText = 'No ha escrito ningún valor en el campo contenido.';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
