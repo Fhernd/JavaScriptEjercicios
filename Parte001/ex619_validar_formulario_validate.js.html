@@ -1,0 +1,89 @@
+<!-- Ejercicio 619: Validar los datos de un formulario HTML con la librería validate.js. -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 619</title>
+    <style>
+        form {
+            width: 600px;
+        }
+
+        div {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="resultadoValidacion">
+    </div>
+    
+    <form action="#" method="post" name="registrarDatos" id="registrarDatos">
+        <fieldset>
+            <legend>Formulario de Captura de Datos</legend>
+            <div>
+                <label for="nombre">Nombre (obligatorio):</label>
+                <input type="text" id="nombre" name="nombre" value="" />
+            </div>
+            <div>
+                <label for="correo">Correo (obligatorio):</label>
+                <input type="text" id="correo" name="correo" value="">
+            </div>
+            <div>
+                <label>Sitio Web:</label>
+                <input type="text" id="url" name="url" value="">
+            </div>
+
+            <div>
+                <label>Tarjeta de Crédito:</label>
+                <input type="text" id="tarjetaCredito" name="tarjetaCredito" value="">
+            </div>
+
+            <div>
+                <input type="submit" value="Submit">
+            </div>
+        </fieldset>
+    </form>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/validate-js/2.0.1/validate.min.js" integrity="sha256-FtvY52LIDZ2/QHmDNay6PTYvLlRsZICHak0iJEAIBuM=" crossorigin="anonymous"></script>
+
+    <script>
+        window.addEventListener('load', () => {
+            let validadorFormulario = new FormValidator('registrarDatos', [{
+                name: 'nombre',
+                display: 'Nombre',
+                rules: 'required|min_length[10]'
+            },
+            {
+                name: 'correo',
+                display: 'Correo',
+                rules: 'required|valid_email'
+            },
+            {
+                name: 'url',
+                display: 'Sitio Web',
+                rules: 'valid_url'
+            },
+            {
+                name: 'tarjetaCredito',
+                display: 'Tarjeta de Crédito',
+                rules: 'valid_credit_card'
+            }], function(errores, evento) {
+                if (errores.length) {
+                    let mensaje = '';
+
+                    errores.forEach(function(campo, indice, arreglo) {
+                        mensaje += `${campo.message} <br/>`;
+                    });
+
+                    document.querySelector('#resultadoValidacion').innerHTML = mensaje;
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
