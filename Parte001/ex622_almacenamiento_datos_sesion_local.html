@@ -1,0 +1,65 @@
+<!-- Ejercicio 622: Almacenar datos localmente a través del objeto sessionStorage de HTML5. -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 622</title>
+</head>
+
+<body>
+    <form action="#" id="registrarDato">
+        <div>
+            <label for="id">ID</label>
+            <input type="text" id="id">
+        </div>
+        <div>
+            <label for="valor">Valor:</label>
+            <input type="text" id="valor">
+        </div>
+    </form>
+    <button id="registrarDato">Registrar</button>
+    <button id="obtenerDato">Obtener</button>
+    <button id="borrarDato">Borrar</button>
+
+    <hr>
+
+    Datos: <br>
+    <div id="datos"></div>
+
+    <script>
+        window.addEventListener('load', () => {
+            document.querySelector('#registrarDato').addEventListener('click', function (evento) {
+                let id = document.querySelector('#id').value;
+                let valor = document.querySelector('#valor').value;
+
+                sessionStorage.setItem(id, valor);
+            });
+
+            document.querySelector('#obtenerDato').addEventListener('click', function (evento) {
+                let id = document.querySelector('#id').value;
+
+                if (sessionStorage.getItem(id)) {
+                    document.querySelector('#datos').innerText = sessionStorage.getItem(id);
+                } else {
+                    document.querySelector('#datos').innerText = `No existe un dato registrado para ${id}`;
+                }
+            });
+
+            document.querySelector('#borrarDato').addEventListener('click', function (evento) {
+                let id = document.querySelector('#id').value;
+
+                if (sessionStorage.getItem(id)) {
+                    sessionStorage.removeItem(id);
+                    document.querySelector('#datos').innerText = `Se ha eliminado el elemento con ID ${id}`;
+                } else {
+                    document.querySelector('#datos').innerText = `No existe un dato registrado para ${id}`;
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
