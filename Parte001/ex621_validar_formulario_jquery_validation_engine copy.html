@@ -1,0 +1,74 @@
+<!-- Ejercicio 621: Validar un formulario HTML con el plugin jQuery Validation Engine. -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 621</title>
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Validation-Engine/2.6.4/validationEngine.jquery.min.css"
+        integrity="sha256-dLfDnFtstI791pbYZLjLRY2JSQSoJ4t3Q3rw0cQLQr4=" crossorigin="anonymous" />
+
+    <style>
+        div {
+            margin: 20px 0 30px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="resultadoValidacion">
+    </div>
+
+    <form id="registrarDatos" name="registrarDatos" action="#" method="post">
+        <fieldset>
+            <legend>Formulario de Captura de Datos</legend>
+            <div class="fld">
+                <label for="nombre">Nombre (obligatorio):</label>
+                <input type="text" id="nombre" name="nombre" class="validate[required]"
+                    data-errormessage-value-missing="El campo Nombre es obligatorio" value="" />
+            </div>
+            <div class="fld">
+                <label for="correo">Correo (obligatorio):</label>
+                <input type="text" id="correo" name="correo" class="validate[required,custom[email]]"
+                    data-errormessage-value-missing="El campo Correo es obligatorio"
+                    data-errormessage-custom-error="Formato: usuario@mail.com" value="" />
+            </div>
+            <div class="fld">
+                <label>Sitio Web:</label>
+                <input type="text" id="url" name="url" class="validate[custom[url]]"
+                    data-errormessage-custom-error="Formato: https://www.jquery.com" value="">
+            </div>
+
+            <div class="fld">
+                <label for="tarjetaCredito">Tarjeta de crédito:</label>
+                <input type="text" id="tarjetaCredito" name="tarjetaCredito" class="validate[creditCard]"
+                    data-errormessage-pattern-mismatch="El campo Tarjeta Crédito es inválido" value="">
+            </div>
+
+            <div class="fld">
+                <input type="submit" value="Enviar">
+            </div>
+        </fieldset>
+    </form>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Validation-Engine/2.6.4/jquery-1.8.2.min.js"
+        integrity="sha256-8j1LMJtydDqor+H4yYols+4xJG+lcsZtnYyxmCyuT7w=" crossorigin="anonymous"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Validation-Engine/2.6.4/languages/jquery.validationEngine-es.min.js"
+        integrity="sha256-MeuxqxFPW1ASZACg9TcTHHIbkBuorhSxRvu2XZkDptM=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Validation-Engine/2.6.4/jquery.validationEngine.min.js"
+        integrity="sha256-HbcATM0NJnF2rpBm+By+JrAikXdPlIujXNosIDzbllA=" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(() => {
+            $('#registrarDatos').validationEngine();
+        });
+    </script>
+</body>
+
+</html>
