@@ -1,0 +1,34 @@
+<!-- Ejercicio 653: Animar una cadena de caracteres utilizando la función setInterval(). -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Ejercicio 653</title>
+</head>
+<body>
+    <h1 id="titulo">JavaScript</h1>
+
+    <br>
+
+    <button id="iniciarAnimacionTexto">Iniciar animación</button>
+
+    <script>
+        window.onload = () => {
+            document.getElementById('iniciarAnimacionTexto').addEventListener('click', function() {
+                iniciarAnimacion();
+            });
+        }
+
+        function iniciarAnimacion() {
+            let titulo = document.getElementById('titulo').innerText;
+
+            setInterval(() => {
+                titulo = titulo[titulo.length - 1] + titulo.substring(0, titulo.length - 1);
+                document.getElementById('titulo').innerText = titulo;
+            }, 200);
+        }
+    </script>
+</body>
+</html>
