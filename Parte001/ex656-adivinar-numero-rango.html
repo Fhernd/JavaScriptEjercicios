@@ -1,0 +1,31 @@
+<!-- Ejercicio 656: Solicitar al usuario que adivine un número en un rango dado. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Ejercicio 656</title>
+</head>
+<body>
+    <button id="adivinarNumero">Adivinar número</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        window.onload = () => {
+            document.getElementById('adivinarNumero').addEventListener('click', function() {
+                let numeroAleatorio = Math.ceil(Math.random() * 10);
+
+                let numero = prompt('Adivine un número entre 1 y 10:');
+
+                if (numero == numeroAleatorio) {
+                    document.getElementById('resultado').innerText = '¡Has ganado!';
+                } else {
+                    document.getElementById('resultado').innerText = '¡Has perdido! Sigue intentándolo.';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
