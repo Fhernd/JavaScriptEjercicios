@@ -1,0 +1,44 @@
+<!-- Ejercicio 658: Computar la multiplicación y división de dos números desde un formulario. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Ejercicio 658</title>
+</head>
+
+<body>
+    <form>
+        <label for="primerNumero">Primer número:</label> <input type="number" id="primerNumero" /><br>
+        <label for="segundoNumero">Segundo número:</label><input type="number" id="segundoNumero" /><br>
+        <input type="button" onClick="multiplicar()" value="Multiplicar" />
+        <input type="button" onClick="dividir()" value="dividir" />
+    </form>
+    <p>Resultado:<br>
+        <span id="resultado"></span>
+    </p>
+
+    <script>
+        function multiplicar() {
+            let numero1 = document.getElementById('primerNumero').value;
+            let numero2 = document.getElementById('segundoNumero').value;
+
+            let producto = numero1 * numero2;
+
+            document.getElementById('resultado').innerText = producto;
+        }
+
+        function dividir() {
+            let numero1 = document.getElementById('primerNumero').value;
+            let numero2 = document.getElementById('segundoNumero').value;
+
+            let producto = numero1 / numero2;
+
+            document.getElementById('resultado').innerText = producto;
+        }
+    </script>
+</body>
+
+</html>
