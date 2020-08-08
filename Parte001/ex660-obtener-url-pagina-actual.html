@@ -1,0 +1,25 @@
+<!-- Ejercicio 660: Obtener la URL de la página actual por medio de la propiedad document.URL. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Ejercicio 660</title>
+</head>
+<body>
+    <button id="obtenerUrl">Obtener URL</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        window.onload = () => {
+            document.getElementById('obtenerUrl').addEventListener('click', function() {
+                let url = document.URL;
+
+                document.getElementById('resultado').innerText = url;
+            });
+        }
+    </script>
+</body>
+</html>
