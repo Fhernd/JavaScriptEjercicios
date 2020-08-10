@@ -11,6 +11,6 @@
     ],
     "liveServer.settings.donotShowInfoMsg": true,
     "editor.fontSize": 27,
-    "editor.minimap.enabled": true,
+    "editor.minimap.enabled": false,
     "editor.wordWrap": "on" 
 }
