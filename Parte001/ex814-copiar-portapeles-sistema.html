@@ -1,0 +1,27 @@
+<!-- Ejercicio 814: Copiar el contenido textual de un elemento HTML y pegar en otro componente. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Ejercicio 814</title>
+</head>
+<body>
+    <textarea id="contenido" cols="30" rows="10"></textarea>
+    <br>
+    <button onclick="copiarContenido()">Copiar contenido</button>
+    <br>
+    <br>
+    <textarea id="copia" cols="30" rows="10"></textarea>
+
+    <script>
+
+        function copiarContenido() {
+            let contenido = document.getElementById('contenido');
+            contenido.select();
+            document.execCommand('copy');
+        }
+    </script>
+</body>
+</html>
