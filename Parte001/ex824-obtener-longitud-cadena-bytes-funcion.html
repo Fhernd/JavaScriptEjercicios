@@ -1,0 +1,48 @@
+<!-- // Ejercicio 824: Obtener la longitud en bytes de una cadena de caracteres. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Ejercicio 824</title>
+</head>
+
+<body>
+
+    <script>
+        function calcularLongitudBytes(cadena) {
+            if (typeof cadena !== 'string') {
+                throw TypeError('El argumento «cadena» debe ser una cadena de caracteres (texto).');
+            }
+
+            return new Blob([cadena]).size;
+        }
+
+        try {
+            console.log(calcularLongitudBytes('Python'));
+        } catch (e) {
+            console.log(`Error: ${e.message}`);
+        }
+
+        console.log();
+
+        try {
+            console.log(calcularLongitudBytes('Pingüino'));
+        } catch (e) {
+            console.log(`Error: ${e.message}`);
+        }
+
+        console.log();
+
+        try {
+            console.log(calcularLongitudBytes('∬'));
+        } catch (e) {
+            console.log(`Error: ${e.message}`);
+        }
+    </script>
+
+</body>
+
+</html>
