@@ -1,0 +1,29 @@
+<!-- Ejercicio 878: Crear una función para detectar el tipo del navegador usado para acceder a una página Web. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Ejercicio 878</title>
+
+    <style>
+        p {
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <p id="resultado"></p>
+
+    <script>
+        window.onload = function() {
+            document.getElementById('resultado').innerText = detectarTipoNavegador();
+        }
+
+        function detectarTipoNavegador() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? 'Móvil' : 'Desktop';
+        }
+    </script>
+</body>
+</html>
