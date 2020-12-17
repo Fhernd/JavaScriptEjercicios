@@ -9,6 +9,7 @@ function fechaMañana(extendida=false) {
     fechaActual.setDate(fechaActual.getDate() + 1);
 
     let resultado = `${fechaActual.getFullYear()}/${String(fechaActual.getMonth() + 1).padStart(2, '0')}`;
+    
     resultado += `/${String(fechaActual.getDate()).padStart(2, '0')}`;
 
     return extendida ? resultado + 'T00:00:00' : resultado;
