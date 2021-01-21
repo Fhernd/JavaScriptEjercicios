@@ -3,7 +3,7 @@
 function eliminar(datos, n = 1) {
     if (!Array.isArray(datos)) {
         throw TypeError('El argumento «datos» debe ser un arreglo.');
-    }
+    }♦«
 
     if (typeof n != 'number') {
         throw TypeError('El argumento «n» debe ser un número.');
