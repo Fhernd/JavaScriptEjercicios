@@ -1,0 +1,51 @@
+<!-- Ejercicio 962: Crear una función para copiar texto al portapapeles del sistema operativo. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Ejercicio 962</title>
+</head>
+<body>
+    <input type="text" name="contenido" id="contenido">
+    <button id="copiar">Copiar texto</button>
+
+    <script>
+        function copiarAlPortapeles(texto) {
+            if (typeof texto != 'string') {
+                throw TypeError('El argumento debe ser una cadena de caracteres.');
+            }
+
+            let areaTexto = document.createElement('textarea');
+            areaTexto.value = texto;
+            areaTexto.setAttribute('readonly', '');
+            areaTexto.style.position = 'absolute';
+            areaTexto.style.left = '-9999px';
+
+            document.body.appendChild(areaTexto);
+
+            let seleccionado = document.getSelection().rangeCount > 0 ? document.getSelection().getRangeAt(0) : false;
+
+            areaTexto.select();
+
+            document.execCommand('copy');
+
+            document.body.removeChild(areaTexto);
+
+            if (seleccionado) {
+                document.getSelection().removeAllRanges();
+                document.getSelection().addRange(seleccionado);
+            }
+        }
+        
+        window.onload = function() {
+            document.getElementById('copiar').addEventListener('click', () => {
+                let contenido = document.getElementById('contenido').value;
+
+                copiarAlPortapeles(contenido);
+            });
+        }
+    </script>
+</body>
+</html>
