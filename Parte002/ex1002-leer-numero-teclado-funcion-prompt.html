@@ -1,0 +1,36 @@
+<!-- Ejercicio 1002: Capturar dos números usando la función prompt(), luego sumarlos. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Ejercicio 1002</title>
+</head>
+<body>
+    
+    <p id="resultado"></p>
+
+    <script>
+        function capturarEntero() {
+            do {
+                let numero = window.prompt('Digite un número:', '0');
+
+                if (!Number.isNaN(Number(numero))) {
+                    return parseInt(numero);
+                }
+            } while (true);
+        }
+
+        window.onload = function() {
+            let numero1 = capturarEntero();
+            let numero2 = capturarEntero();
+
+            let suma = numero1 + numero2;
+
+            document.getElementById('resultado').innerText = suma;
+        }
+    </script>
+</body>
+</html>
