@@ -1,0 +1,45 @@
+<!-- Ejercicio 1020: Agregar elementos a un arreglo y luego mostrarlos en una página Web. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Ejercicio 1020</title>
+</head>
+
+<body>
+    <input type="text" id="texto"></input>
+    <input type="button" id="btnAgregarElemento" value="Agregar" onclick="agregarElemento();"></input>
+    <input type="button" id="btnMostrarArreglo" value="Mostrar" onclick="mostrarArreglo();"></input>
+    <hr>
+    <div id="resultado"></div>
+
+    <script>
+        window.onload = function() {
+            window.datos = [];
+        }
+
+        function agregarElemento() {
+            let dato = document.getElementById('texto').value;
+
+            datos.push(dato);
+        }
+
+        function mostrarArreglo() {
+            let resultado = document.getElementById('resultado');
+            resultado.innerHTML = '';
+
+            for (const dato of datos) {
+                let datoParrafo = document.createElement('p');
+                datoParrafo.innerText = dato;
+
+                resultado.appendChild(datoParrafo);
+            }
+        }
+    </script>
+</body>
+
+</html>
