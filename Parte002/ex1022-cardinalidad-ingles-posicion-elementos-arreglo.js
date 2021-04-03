@@ -9,3 +9,15 @@ function ordinal(n) {
 
     return residuo + (terminaciones[(residuo - 20) % 10] || terminaciones[residuo] || terminaciones[0]);
 }
+
+let lenguajes = ['JavaScript', 'Python', 'Java', 'C++', 'C#', 'Go', 'Perl'];
+
+// JavaScript es la elección 1st
+
+for(let n = 0; n < lenguajes.length; ++n) {
+    let valor = n + 1;
+
+    let resultado = `${lenguajes[n]} es la elección ${ordinal(valor)}`;
+
+    console.log(resultado);
+}
