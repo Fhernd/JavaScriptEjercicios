@@ -1,17 +1,11 @@
-// Ejercicio 1125: Convertir una cadena de caracteres ASCII a su representación en hexadecimal.
+// Ejercicio 1126: Usar la función reduce() para convertir un texto ASCII a hexadecimal.
 
 function asciiAHexadecimal(texto) {
     if (texto.constructor != String) {
         return null;
     }
 
-    let resultado = [];
-
-    for (let i = 0; i < texto.length; i++) {
-        resultado.push(Number(texto.charCodeAt(i)).toString(16));
-    }
-
-    return resultado.join('');
+    return texto.split('').reduce((a, v) => a.concat(Number(v.charCodeAt(0)).toString(16)), '');
 }
 
 console.log(asciiAHexadecimal('JavaScript'));
