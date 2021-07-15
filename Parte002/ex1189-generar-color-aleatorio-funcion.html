@@ -1,0 +1,33 @@
+<!-- Ejercicio 1189: Definir una función para generar un color aleatorio. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Ejercicio 1189</title>
+</head>
+<body id="principal">
+
+    <button id="btnGenerarColorAleatorio">Generar color aleatorio</button>
+    
+    <script>
+        window.onload = function() {
+            document.getElementById('btnGenerarColorAleatorio').addEventListener('click', function() {
+                let color = generarColorAleatorio();
+
+                document.getElementById('principal').style.backgroundColor = color;
+            });
+        }
+
+        function generarColorAleatorio() {
+            let rojo = Math.floor(Math.random() * 256);
+            let verde = Math.floor(Math.random() * 256);
+            let azul = Math.floor(Math.random() * 256);
+
+            return `rgb(${rojo}, ${verde}, ${azul})`;
+        }
+    </script>
+</body>
+</html>
