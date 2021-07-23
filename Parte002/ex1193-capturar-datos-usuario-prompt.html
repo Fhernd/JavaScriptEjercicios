@@ -1,0 +1,31 @@
+<!-- Ejercicio 1193: Usar la función incorporada prompt() para capturar datos del usuario. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Ejercicio 1193</title>
+</head>
+<body>
+    <h1>Capturar datos usuario con la función prompt()</h1>
+    <br>
+
+    <button id="btnCapturarNombre">Capturar nombre</button>
+
+    <br>
+
+    <p id="resultado"></p>
+
+    <script>
+        window.onload = function() {
+            document.getElementById('btnCapturarNombre').addEventListener('click', function() {
+                let nombre = prompt('Digite su nombre:');
+
+                document.getElementById('resultado').innerText = nombre;
+            });
+        }
+    </script>
+</body>
+</html>
