@@ -1,0 +1,21 @@
+// Ejercicio 1197: Restar los elementos de un arreglo a través de la función reduce().
+
+function restarNumerosArreglo(numeros) {
+    if (!Array.isArray(numeros)) {
+        return null;
+    }
+
+    return numeros.reduce((t, n, i) => {
+        if (i != 0) {
+            t -= n;
+        } else {
+            t = n;
+        }
+
+        return t;
+    }, 0);
+}
+
+console.log(restarNumerosArreglo([5, 1, 2, -3]));   // 5
+console.log(restarNumerosArreglo([7, 1, 7, -2]));   // 1
+console.log(restarNumerosArreglo(new Set()));   // null
