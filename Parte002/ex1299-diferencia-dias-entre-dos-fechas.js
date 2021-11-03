@@ -1,4 +1,4 @@
-// Ejercicio 1298: Encontrar la diferencia en días entre dos fechas con una función.
+// Ejercicio 1299: Encontrar la diferencia en días entre dos fechas con una función.
 
 function calcularDiferenciaDias(fecha1, fecha2) {
     let diferencia = (fecha2.getTime() - fecha1.getTime()) / 1000 / (3600 * 24);
