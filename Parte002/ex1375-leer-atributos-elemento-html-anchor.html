@@ -1,0 +1,47 @@
+<!-- Ejercicio 1375: Leer todos los atributos de un elemento HTML tipo enlace. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Ejercicio 1375</title>
+</head>
+
+<body>
+    <h1>JavaScript - Ejercicio 1375</h1>
+
+    <p>
+        <a id="ortizOlEnlace" type="text/html" hreflang="es-co" rel="nofollow" target="_self"
+            href="https://ortizol.blogspot.com/">OrtizOL Blog</a>
+    </p>
+
+    <button onclick="obtenerAtributos()">Leer atributos enlace</button>
+
+    <br>
+
+    <p id="resultado"></p>
+
+    <script>
+        function obtenerAtributos() {
+            let ortizOlEnlace = document.getElementById('ortizOlEnlace');
+
+            let resultado = ortizOlEnlace.href;
+            resultado += '\n';
+            resultado += ortizOlEnlace.hreflang;
+            resultado += '\n';
+            resultado += ortizOlEnlace.rel;
+            resultado += '\n';
+            resultado += ortizOlEnlace.target;
+            resultado += '\n';
+            resultado += ortizOlEnlace.target;
+            resultado += '\n';
+
+            document.getElementById('resultado').innerText = resultado;
+        }
+    </script>
+</body>
+
+</html>
