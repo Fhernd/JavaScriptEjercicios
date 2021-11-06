@@ -1,0 +1,45 @@
+<!-- Ejercicio 1373: Imprimir los valores de los campos de un formulario HTML. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Ejercicio 1373</title>
+</head>
+
+<body>
+    <h1>JavaScript - Ejercicio 1373</h1>
+
+    <form id="frmDatosPersonales" onsubmit="leerValoresCampos()">
+        Nombre: <input type="text" name="nombre" value="John"><br>
+        Apellido: <input type="text" name="apellido" value="Ortiz"><br>
+        <input type="submit" value="Subir">
+    </form>
+
+    <br>
+
+    <p id="resultado"></p>
+
+    <script>
+        function leerValoresCampos() {
+            let frmDatosPersonales = document.getElementById('frmDatosPersonales');
+            let resultado = '';
+
+            for (let i = 0; i < frmDatosPersonales.length; i++) {
+
+                if (frmDatosPersonales.elements[i].value != 'Subir') {
+                    resultado += frmDatosPersonales.elements[i].value;
+                }
+            }
+
+            document.getElementById('resultado').textContent = resultado;
+
+            console.log(resultado);
+        }
+    </script>
+</body>
+
+</html>
