@@ -1,0 +1,25 @@
+<!-- Ejercicio 1374: Cambiar el fondo de un documento HTML. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Ejercicio 1374</title>
+</head>
+<body>
+    <h1>JavaScript - Ejercicio 1374</h1>
+
+    <button id="cambioFondo" onclick="cambiarFondoDocumento()">Cambiar fondo documento</button>
+
+
+    <script>
+        function cambiarFondoDocumento() {
+            let body = document.getElementsByTagName('body')[0];
+
+            body.style.backgroundColor = '#f00';
+        }
+    </script>
+</body>
+</html>
