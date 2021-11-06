@@ -1,0 +1,28 @@
+<!-- Ejercicio 1372: Modificar el estilo de un elemento párrafo desde código JavaScript. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Ejercicio 1372</title>
+</head>
+<body>
+    <h1>JavaScript - Ejercicio 1372</h1>
+
+    <p id="contenido">JavaScript es tremendo</p>
+
+    <button id="cambioEstilo" onclick="cambiarEstilo()">Cambiar estilo parráfo</button>
+
+    <script>
+        function cambiarEstilo() {
+            let contenido = document.getElementById('contenido');
+
+            contenido.style.fontSize = '20px';
+            contenido.style.color = '#FFF';
+            contenido.style.backgroundColor = '#F00';
+        }
+    </script>
+</body>
+</html>
