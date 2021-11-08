@@ -1,0 +1,38 @@
+<!-- Ejercicio 1382: Generar un número entero aleatorio dentro de un rango dado. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Ejercicio 1382</title>
+</head>
+<body>
+    <h1>JavaScript - Ejercicio 1382</h1>
+
+    <form id="frmGenerarEnteroAleatorio">
+        <label for="inicio">Inicio: </label><input type="text" name="inicio" id="inicio" required><br>
+        <label for="final">Final: </label><input type="text" name="final" id="final" required><br>
+        <label for="entero">Entero: </label><input type="text" name="entero" id="entero"><br>
+        <input type="submit" value="Generar entero aleatorio" id="submit">
+    </form>
+
+    <script>
+        function generarEnteroAleatorio() {
+            let inicio = parseInt(document.getElementById('inicio').value);
+            let final = parseInt(document.getElementById('final').value);
+            console.log(inicio, final);
+            let enteroAleatorio = inicio + Math.floor(Math.random() * Math.abs(final - inicio));
+
+            document.getElementById('entero').value = enteroAleatorio;
+
+            return false;
+        }
+
+        window.onload = () => {
+            document.getElementById('frmGenerarEnteroAleatorio').onsubmit = generarEnteroAleatorio;
+        }
+    </script>
+</body>
+</html>
