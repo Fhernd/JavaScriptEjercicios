@@ -1,0 +1,43 @@
+<!-- Ejercicio 1376: Agregar filas a una tabla de manera dinámica. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Ejercicio 1376</title>
+</head>
+
+<body>
+    <h1>JavaScript - Ejercicio 1376</h1>
+
+    <table id="tblDatos" border="1">
+        <tr>
+            <td>Fila1 Columna1</td>
+            <td>Fila1 Columna2</td>
+        </tr>
+        <tr>
+            <td>Fila2 Columna1</td>
+            <td>Fila2 Columna2</td>
+        </tr>
+    </table>
+    
+    <br>
+    
+    <input type="button" onclick="insertarFila()" value="Insertar fila">
+
+    <script>
+        function insertarFila() {
+            let tblDatos = document.getElementById('tblDatos').insertRow(0);
+            let col1 = tblDatos.insertCell(0);
+            let col2 = tblDatos.insertCell(1);
+
+            col1.innerHTML = 'Nueva celda';
+            col2.innerHTML = 'Nueva celda';
+        }
+    </script>
+</body>
+
+</html>
