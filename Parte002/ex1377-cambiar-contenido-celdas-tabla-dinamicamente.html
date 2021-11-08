@@ -1,0 +1,42 @@
+<!-- Ejercicio 1377: Cambiar el contenido de las celdas de una tabla de forma dinámica. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Ejercicio 1377</title>
+</head>
+<body>
+    <h1>JavaScript - Ejercicio 1377</h1>
+
+    <table id="tblDatos" border="1">
+        <tr>
+            <td>Fila1 Columna1</td>
+            <td>Fila1 Columna2</td>
+        </tr>
+        <tr>
+            <td>Fila2 Columna1</td>
+            <td>Fila2 Columna2</td>
+        </tr>
+    </table>
+    
+    <br>
+    
+    <input type="button" onclick="cambiarContenidoCelda()" value="Cambiar contenido celda">
+
+    <script>
+        function cambiarContenidoCelda() {
+            // 1 ... 2
+            let fila = parseInt(prompt('Digite el número de la fila:', 1));
+            let columna = parseInt(prompt('Digite el número de la columna:', 1));
+
+            if ((fila >= 1 && fila <= 2) && (columna >= 1 && columna <= 2)) {
+                let celdas = document.getElementById('tblDatos').rows[fila - 1].cells;
+                celdas[columna - 1].innerHTML = prompt('Digite un nuevo valor para la celda:');
+            }
+        }
+    </script>
+</body>
+</html>
