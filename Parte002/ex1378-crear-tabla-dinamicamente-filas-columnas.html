@@ -1,0 +1,38 @@
+<!-- Ejercicio 1378: Crear una tabla de forma dinámica indicando el número de filas y columnas. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Ejercicio 1378</title>
+</head>
+<body>
+    <h1>JavaScript - Ejercicio 1378</h1>
+
+    <input type="button" onclick="crearTabla()" value="Crear tabla">
+
+    <br>
+
+    <table id="tblDatos" border="1"></table>
+
+
+    <script>
+        function crearTabla() {
+            let filas = parseInt(prompt('Digite el número de filas para la tabla:'));
+            let columnas = parseInt(prompt('Digite el número de columnas para la tabla:'));
+
+            for (let i = 0; i < filas; i++) {
+                let filaActual = document.getElementById('tblDatos').insertRow(i);
+                
+                for (let j = 0; j < columnas; j++) {
+                    let celda = filaActual.insertCell(j);
+
+                    celda.innerHTML = `Fila: ${i} - Columna: ${j}`;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
