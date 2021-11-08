@@ -1,0 +1,35 @@
+<!-- Ejercicio 1379: Remover un elemento de una lista desplegable (select). -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Ejercicio 1379</title>
+</head>
+
+<body>
+    <h1>JavaScript - Ejercicio 1379</h1>
+
+    <select id="cbxColores">
+        <option>Negro</option>
+        <option>Blanco</option>
+        <option>Rojo</option>
+        <option>Verde</option>
+        <option>Azul</option>
+    </select>
+
+    <input type="button" onclick="removerItemListaDesplegable()" value="Remover ítem">
+
+    <script>
+        function removerItemListaDesplegable() {
+            let cbxColores = document.getElementById('cbxColores');
+
+            cbxColores.remove(cbxColores.selectedIndex);
+        }
+    </script>
+</body>
+
+</html>
