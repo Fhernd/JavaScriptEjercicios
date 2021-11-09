@@ -1,0 +1,32 @@
+<!-- Ejercicio 1389: Dibujar dos rectángulos superpuestos haciendo uso de la API canvas de HTML5. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Ejercicio 1389</title>
+</head>
+<body onload="dibujar();">
+    <h1>JavaScript - Ejercicio 1389</h1>
+
+    <canvas id="canvas" width="200" height="200"></canvas>
+
+    <script>
+        function dibujar() {
+            let canvas = document.getElementById('canvas');
+
+            if (canvas.getContext) {
+                let contexto2d = canvas.getContext('2d');
+
+                contexto2d.fillStyle = 'rgb(255,0,0)';
+                contexto2d.fillRect(15, 15, 100, 100);
+
+                contexto2d.fillStyle = 'rgb(0,0,200, 0.6)';
+                contexto2d.fillRect(30, 30, 100, 100);
+            }
+        }
+    </script>
+</body>
+</html>
