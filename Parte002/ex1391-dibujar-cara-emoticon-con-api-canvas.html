@@ -1,0 +1,39 @@
+<!-- Ejercicio 1391: Dibujar una cara de emoticon usando la API Canvas de HTML5. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Ejercicio 1391</title>
+</head>
+<body onload="dibujarEmoticon();">
+    <h1>JavaScript - Ejercicio 1391</h1>
+
+    <canvas id="canvasEmoticon" width="300" height="300"></canvas>
+
+    <script>
+        function dibujarEmoticon() {
+            let canvasEmoticon = document.getElementById('canvasEmoticon');
+
+            if (canvasEmoticon.getContext) {
+                let contexto2d = canvasEmoticon.getContext('2d');
+
+                contexto2d.beginPath();
+
+                contexto2d.arc(70, 70, 50, 0, Math.PI * 2, true);
+
+                contexto2d.moveTo(105, 70);
+                contexto2d.arc(70, 70, 35, 0, Math.PI, false);
+
+                contexto2d.moveTo(50, 60);
+                contexto2d.arc(55, 60, 5, 0, Math.PI * 2, true);
+                contexto2d.arc(85, 60, 5, 0, Math.PI * 2, true);
+
+                contexto2d.stroke();
+            }
+        }
+    </script>
+</body>
+</html>
