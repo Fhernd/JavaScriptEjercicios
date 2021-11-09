@@ -1,0 +1,38 @@
+<!-- Ejercicio 1385: Resaltar palabras de un párrafo al posicionar el mouse sobre otro párrafo. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Ejercicio 1385</title>
+</head>
+<body>
+    <h1>JavaScript - Ejercicio 1385</h1>
+
+    <p onmouseover="resaltar();" onmouseout="removerResaltado();">Resaltar texto</p>
+
+    <br>
+
+    <p><strong>JavaScript</strong> es un <strong>lenguaje de programación</strong> interpretado para la creación de <strong>aplicaciones Web</strong> dinámicas.</p>
+
+    <script>
+        function resaltar() {
+            for (const e of obtenerPalabrasClave()) {
+                e.style.color = 'green';
+            }
+        }
+
+        function removerResaltado() {
+            for (const e of obtenerPalabrasClave()) {
+                e.style.color = 'black';
+            }
+        }
+
+        function obtenerPalabrasClave() {
+            return document.getElementsByTagName('strong');
+        }
+    </script>
+</body>
+</html>
