@@ -1,0 +1,61 @@
+<!-- Ejercicio 1384: Cargar y mostrar una imagen de forma aleatoria en un documento HTML. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Ejercicio 1384</title>
+</head>
+
+<body>
+    <h1>JavaScript - Ejercicio 1384</h1>
+
+    <button onclick="cargarMostrarImagenAleatoria();">Cargar y mostrar imagen</button>
+
+    <script>
+        function cargarMostrarImagenAleatoria() {
+            let imagenes = [
+                {
+                    src: "https://images.unsplash.com/photo-1496070242169-b672c576566b",
+                    width: "320",
+                    height: "320"
+                },
+                {
+                    src: "https://images.unsplash.com/photo-1518737496070-5bab26f59b3f",
+                    width: "360",
+                    height: "360"
+                },
+                {
+                    src: "https://images.unsplash.com/photo-1592827001593-78cad6b2e870",
+                    width: "420",
+                    height: "420"
+                }
+            ];
+
+            let bufferImagenes = [];
+
+            for (const e of imagenes) {
+                let imagen = new Image();
+                imagen.src = e.src;
+                imagen.width = e.width;
+                imagen.height = e.height;
+
+                bufferImagenes.push(imagen);
+            }
+
+            let indiceImagenAleatoria = generarEnteroAleatorio(imagenes.length);
+            let imagenAleatoria = bufferImagenes[indiceImagenAleatoria];
+            
+            let nuevoElementoImagen = document.body.appendChild(imagenAleatoria);
+        }
+
+        function generarEnteroAleatorio(cantidadImagenes) {
+            return Math.floor(Math.random() * cantidadImagenes);
+        }
+    </script>
+</body>
+
+</html>
