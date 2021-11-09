@@ -1,0 +1,43 @@
+<!-- Ejercicio 1392: Dibujar una diagonal de círculos usando la API Canvas de HTML5. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Ejercicio 1392</title>
+</head>
+<body onload="dibujarCirculos();">
+    <h1>JavaScript - Ejercicio 1392</h1>
+
+    <canvas id="canvasCirculos" width="500" height="500"></canvas>
+
+    <script>
+        function dibujarCirculos() {
+            let canvas = document.getElementById('canvasCirculos');
+
+            if (canvas.getContext) {
+                let contexto = canvas.getContext('2d');
+                let contador = 0;
+
+                for (let i = 0; i < 6; i++) {
+                    for (let j = 0; j < 6; j++) {
+                        contexto.fillStyle = `rgb(${Math.floor(255-42.5 * i)}, ${Math.floor(255-42.5 * i)}, ${Math.floor(255-42.5 * j)}`;
+
+                        contexto.beginPath();
+
+                        if (i == contador && j == contador) {
+                            contexto.arc(25 + j * 50, 30 + i * 50, 20, 0, Math.PI * 2, true);
+                            contexto.fill();
+                            contexto.stroke();
+                        }
+                    }
+
+                    ++contador;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
