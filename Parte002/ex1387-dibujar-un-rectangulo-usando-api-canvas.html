@@ -1,0 +1,29 @@
+<!-- Ejercicio 1387: Dibujar un rectángulo haciendo uso de la API canvas de HTML5. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Ejercicio 1387</title>
+</head>
+<body onload="dibujar();">
+    <h1>JavaScript - Ejercicio 1387</h1>
+
+    <canvas id="canvas" width="160" height="160"></canvas>
+
+    <script>
+        function dibujar() {
+            let canvas = document.getElementById('canvas');
+
+            if (canvas.getContext) {
+                let contexto2d = canvas.getContext('2d');
+
+                contexto2d.fillRect(15, 15, 130, 130);
+                contexto2d.clearRect(30, 30, 100, 100);
+            }
+        }
+    </script>
+</body>
+</html>
