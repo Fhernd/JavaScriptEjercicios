@@ -1,0 +1,34 @@
+<!-- Ejercicio 1390: Dibujar un triángulo haciendo uso de la API canvas de HTML5. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Ejercicio 1390</title>
+</head>
+<body onload="dibujar();">
+    <h1>JavaScript - Ejercicio 1390</h1>
+
+    <canvas id="canvas" width="160" height="160"></canvas>
+
+    <script>
+        function dibujar() {
+            let canvas = document.getElementById('canvas');
+
+            if (canvas.getContext) {
+                let contexto2d = canvas.getContext('2d');
+
+                contexto2d.beginPath();
+
+                contexto2d.moveTo(75, 75);
+                contexto2d.lineTo(10, 75);
+                contexto2d.lineTo(10, 25);
+
+                contexto2d.fill();
+            }
+        }
+    </script>
+</body>
+</html>
