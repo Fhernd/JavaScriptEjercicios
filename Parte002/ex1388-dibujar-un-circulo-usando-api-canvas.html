@@ -1,0 +1,36 @@
+<!-- Ejercicio 1388: Dibujar un círculo haciendo uso de la API canvas de HTML5. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Ejercicio 1388</title>
+</head>
+<body onload="dibujar();">
+    <h1>JavaScript - Ejercicio 1388</h1>
+
+    <canvas id="canvas" width="200" height="200"></canvas>
+
+    <script>
+        function dibujar() {
+            let canvas = document.getElementById('canvas');
+
+            if (canvas.getContext) {
+                let contexto2d = canvas.getContext('2d');
+                let x = canvas.width / 2;
+                let y = canvas.height / 2;
+
+                let radio = 45;
+
+                contexto2d.beginPath();
+                contexto2d.arc(x, y, radio, 0, 2 * Math.PI, false);
+                contexto2d.linewidth = 5;
+                contexto2d.strokeStyle = '#0F0';
+                contexto2d.stroke();
+            }
+        }
+    </script>
+</body>
+</html>
