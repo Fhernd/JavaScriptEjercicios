@@ -1,0 +1,34 @@
+<!-- Ejercicio 1413: Usar jQuery para validar si un valor corresponde con un elemento del DOM. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Ejercicio 1413</title>
+</head>
+<body>
+    <h1>JavaScript - Ejercicio 1413</h1>
+
+    <img src="" alt="">
+
+    <p id="resultado1"></p>
+    <p id="resultado2"></p>
+    <p id="resultado3"></p>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        function esElementoDom(dato) {
+            return (dato && dato.nodeType === 1);
+        }
+
+        window.onload = function() {
+            $('#resultado1').text(esElementoDom($('body')[0]))  // true
+            $('#resultado2').text(esElementoDom($('img')[0]))  // true
+            $('#resultado3').text(esElementoDom($('paragraph')[0]))  // false
+        };
+    </script>
+</body>
+</html>
