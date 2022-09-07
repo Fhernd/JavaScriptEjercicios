@@ -1,0 +1,38 @@
+<!-- Ejercicio 1453: Mostrar en pantalla la posición en x e y del cursor del mouse. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Ejercicio 1453</title>
+    <style>
+        #areaTrabajo {
+            width: 500px;
+            height: 500px;
+            border: 2px solid blueviolet;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div id="areaTrabajo" onmousemove="detectarPosicionMouse(event);">
+
+    </div>
+
+    <br>
+
+    <span id="posicionMouse"></span>
+
+    <script>
+        function detectarPosicionMouse(event) {
+            const x = event.clientX;
+            const y = event.clientY;
+
+            const coordenadas = `Posicion(${x}, ${y})`;
+
+            document.getElementById('posicionMouse').innerText = coordenadas;
+        }
+    </script>
+</body>
+</html>
