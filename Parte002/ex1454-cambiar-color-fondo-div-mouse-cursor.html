@@ -1,0 +1,37 @@
+<!-- Ejercicio 1454: Cambiar Color de Fondo de un Elemento HTML al Entrar o Salir Cursor del Mouse. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Ejercicio 1454</title>
+    <style>
+        #areaTrabajo {
+            width: 500px;
+            height: 500px;
+            border: 2px solid blueviolet;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div id="areaTrabajo" onmouseenter="ingresarMouse(event)" onmouseleave="salirMouse(event)">
+
+    </div>
+
+    <br>
+
+    <span id="estadoMouse"></span>
+    
+    <script>
+        function ingresarMouse(event) {
+            document.getElementById('areaTrabajo').style.backgroundColor = 'red';
+        }
+        
+        function salirMouse(event) {
+            document.getElementById('areaTrabajo').style.backgroundColor = 'aqua';
+        }
+    </script>
+</body>
+</html>
